@@ -61,6 +61,11 @@
     
     #dev
     vscode
+    yazi
+    direnv
+    #dev lang
+    go
+    
     #game
     chiaki-ng
     
