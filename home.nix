@@ -64,7 +64,7 @@
     direnv
     #dev lang
     go
-    
+    rustup
     #game
     chiaki-ng
     
