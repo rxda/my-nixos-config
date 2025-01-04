@@ -54,9 +54,11 @@
     pciutils # lspci
     usbutils # lsusb
     clash-verge-rev
+    lshw
+    tailscale
     #chrome
     google-chrome
-    lshw
+    
     #dev
     vscode
     #game
@@ -101,7 +103,7 @@
   };
 
   programs.bash = {
-    enable = true;
+    enable = false;
     enableCompletion = true;
     # TODO 在这里添加你的自定义 bashrc 内容
     bashrcExtra = ''
@@ -112,6 +114,25 @@
     shellAliases = {
       k = "kubectl";
     };
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" ];
+      theme = "robbyrussell";
+    };
+
+    shellAliases = {
+      ll = "ls -l";
+      update = "nixos-rebuild switch";
+    };
+    history.size = 1000000;
   };
 
   # This value determines the Home Manager release that your
