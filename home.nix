@@ -55,7 +55,6 @@
     usbutils # lsusb
     clash-verge-rev
     lshw
-    tailscale
     #chrome
     google-chrome
     
