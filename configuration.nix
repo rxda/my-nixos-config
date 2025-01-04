@@ -44,7 +44,7 @@
 
   # Chinese input
   i18n.inputMethod = {
-    enabled = "ibus";
+    # enabled = "ibus";
     type = "ibus";
     enable = true;
     ibus.engines = with pkgs.ibus-engines; [
@@ -55,7 +55,7 @@
   
   fonts = {
     fontconfig.enable = true;
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
       noto-fonts
