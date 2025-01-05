@@ -170,7 +170,7 @@
   users.users.rxda = {
     isNormalUser = true;
     description = "rxda";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -198,9 +198,11 @@
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
+    gnomeExtensions.dash-to-dock
   ];
 
   environment.sessionVariables = rec {
+    # env for steam pronton
     NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
     NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
   };
@@ -215,6 +217,15 @@
 
   # enable the tailscale service
   services.tailscale.enable = true;
+
+    # 启用docker虚拟化
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
