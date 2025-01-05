@@ -65,11 +65,14 @@
     #dev lang
     go
     rustup
+    gcc
     #game
     chiaki-ng
     
     #china
     wechat-uos
+    #music
+    spotify
   ];
 
   # git 相关配置
