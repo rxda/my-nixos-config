@@ -63,13 +63,13 @@
     yazi
     direnv
     virtualbox
+    protonplus
     #dev lang
     go
     rustup
     gcc
     #game
     chiaki-ng
-    
     #china
     wechat-uos
     #music
