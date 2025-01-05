@@ -34,7 +34,7 @@
     zip
     xz
     unzip
-
+    p7zip
     # misc
     tree
 
@@ -55,9 +55,11 @@
     usbutils # lsusb
     clash-verge-rev
     lshw
-    #chrome
+    neofetch
+    #tools
     google-chrome
     wpsoffice-cn
+    libreoffice-qt6-fresh
     #dev
     vscode
     yazi
