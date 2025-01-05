@@ -62,6 +62,7 @@
     vscode
     yazi
     direnv
+    virtualbox
     #dev lang
     go
     rustup
