@@ -57,7 +57,7 @@
     lshw
     #chrome
     google-chrome
-    
+    wpsoffice-cn
     #dev
     vscode
     yazi
