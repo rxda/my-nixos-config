@@ -53,19 +53,25 @@
     ethtool
     pciutils # lspci
     usbutils # lsusb
-    clash-verge-rev
+    clash-meta
     lshw
     neofetch
+    warp-terminal
+    busybox
     #tools
     google-chrome
     wpsoffice-cn
     libreoffice-qt6-fresh
+    baidupcs-go
+    telegram-desktop
     #dev
     vscode
     yazi
     direnv
     virtualbox
     protonplus
+    jetbrains.idea-ultimate
+    jetbrains.datagrip
     #dev lang
     go
     rustup
