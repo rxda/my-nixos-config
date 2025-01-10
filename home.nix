@@ -54,6 +54,7 @@
     pciutils # lspci
     usbutils # lsusb
     clash-meta
+    flclash
     lshw
     neofetch
     warp-terminal
