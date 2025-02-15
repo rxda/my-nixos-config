@@ -116,7 +116,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
   };
 
 
@@ -206,6 +206,26 @@
     # env for steam pronton
     NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
     NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
+    # env for jetbra
+    IDEA_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/idea.vmoptions";
+    CLION_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/clion.vmoptions";
+    PHPSTORM_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/phpstorm.vmoptions";
+    GOLAND_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/goland.vmoptions";
+    PYCHARM_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/pycharm.vmoptions";
+    WEBSTORM_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/webstorm.vmoptions";
+    WEBIDE_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/webide.vmoptions";
+    RIDER_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/rider.vmoptions";
+    DATAGRIP_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/datagrip.vmoptions";
+    RUBYMINE_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/rubymine.vmoptions";
+    DATASPELL_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/dataspell.vmoptions";
+    AQUA_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/aqua.vmoptions";
+    RUSTROVER_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/rustrover.vmoptions";
+    GATEWAY_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/gateway.vmoptions";
+    JETBRAINS_CLIENT_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/jetbrains_client.vmoptions";
+    JETBRAINSCLIENT_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/jetbrainsclient.vmoptions";
+    STUDIO_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/studio.vmoptions";
+    DEVECOSTUDIO_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/devecostudio.vmoptions";
+
   };
 
   # steam
