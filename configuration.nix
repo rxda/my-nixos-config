@@ -130,12 +130,7 @@
   # Enable the gnome-keyring secrets vault. 
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
-
-  # enable Sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
+  services.gnome.core-utilities.enable = true;
 
 
   # Configure keymap in X11
@@ -163,6 +158,8 @@
     #media-session.enable = true;
   };
 
+  environment.gnome.excludePackages = with pkgs; [];
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -177,8 +174,6 @@
   };
   users.defaultUserShell = pkgs.zsh;
 
-  # Install firefox.
-  programs.firefox.enable = true;
   # Zsh
   programs.zsh.enable = true;
 
@@ -253,6 +248,12 @@
     enable = true;
     checkReversePath = "loose";
   };
+
+  # Virt-manager 虚拟机
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["rxda"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
