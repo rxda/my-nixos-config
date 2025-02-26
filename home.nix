@@ -54,7 +54,6 @@
     pciutils # lspci
     usbutils # lsusb
     clash-meta
-    flclash
     lshw
     neofetch
     warp-terminal
@@ -65,14 +64,19 @@
     libreoffice-qt6-fresh
     baidupcs-go
     telegram-desktop
+    aria2
     #dev
     vscode
     yazi
     direnv
     virtualbox
+    spice-vdagent
     protonplus
     jetbrains.idea-ultimate
     jetbrains.datagrip
+    nodejs_23
+    pnpm_10
+    code-cursor
     # temurin-bin-23
     jdk17
     #dev lang
