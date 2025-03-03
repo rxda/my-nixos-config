@@ -143,7 +143,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -247,12 +247,16 @@
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
+    trustedInterfaces = ["wlp4s0" "virbr0"];
   };
 
   # Virt-manager 虚拟机
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["rxda"];
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+  };
   virtualisation.spiceUSBRedirection.enable = true;
  
   # Some programs need SUID wrappers, can be configured further or are
