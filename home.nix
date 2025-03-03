@@ -77,8 +77,11 @@
     nodejs_23
     pnpm_10
     code-cursor
-    # temurin-bin-23
-    jdk17
+    temurin-bin-23
+    OVMF
+    gnugrep
+    # jdk17
+    maven
     #dev lang
     go
     rustup
