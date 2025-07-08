@@ -121,16 +121,14 @@
 
 
   # Enable the GNOME Desktop Environment.
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable the gnome-keyring secrets vault. 
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
-  services.gnome.core-utilities.enable = true;
+  services.gnome.core-apps.enable = true;
 
 
   # Configure keymap in X11
@@ -220,6 +218,8 @@
     JETBRAINSCLIENT_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/jetbrainsclient.vmoptions";
     STUDIO_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/studio.vmoptions";
     DEVECOSTUDIO_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/devecostudio.vmoptions";
+    # env for fonts
+    XDG_DATA_HOME = "$HOME/nixos-config";
 
   };
 

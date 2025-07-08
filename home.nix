@@ -65,6 +65,7 @@
     baidupcs-go
     telegram-desktop
     aria2
+    nh
     #dev
     vscode
     yazi
@@ -74,18 +75,23 @@
     protonplus
     jetbrains.idea-ultimate
     jetbrains.datagrip
-    nodejs_23
     pnpm_10
     code-cursor
-    temurin-bin-23
     OVMF
     gnugrep
-    # jdk17
+    wireshark
+    fiddler-everywhere
+    android-tools
+    gnome-tweaks
+    easytier
+    jdk8
+    postman
     maven
-    #dev lang
+    #dev
     go
     rustup
     gcc
+    # graalvmPackages.graalvm-ce
     #game
     chiaki-ng
     prismlauncher
@@ -93,6 +99,7 @@
     wechat-uos
     #music
     spotify
+    netease-cloud-music-gtk
   ];
 
   # git 相关配置
