@@ -56,16 +56,23 @@
     clash-meta
     lshw
     neofetch
-    warp-terminal
     busybox
     #tools
+    pritunl-client #openvpn
     google-chrome
+    firefox
     wpsoffice-cn
     libreoffice-qt6-fresh
     baidupcs-go
     telegram-desktop
     aria2
     nh
+    file
+    nix-init
+    gui-for-singbox
+    sing-box
+    sing-geoip
+    clash-rs
     #dev
     vscode
     yazi
@@ -91,6 +98,7 @@
     go
     rustup
     gcc
+    nix-index
     # graalvmPackages.graalvm-ce
     #game
     chiaki-ng
