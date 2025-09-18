@@ -53,7 +53,6 @@
   };
   
   fonts = {
-    fontconfig.enable = true;
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
@@ -67,9 +66,17 @@
       jetbrains-mono
       wqy_microhei
       wqy_zenhei
+      nerd-fonts.fira-code #确保有 Nerd Font for Starship
     ];
-  };
 
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [ "FiraCode Nerd Font Mono" "Noto Sans Mono CJK SC" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
+  };
 
   # Nvidia Driver
   # Enable OpenGL
