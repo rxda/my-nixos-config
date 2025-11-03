@@ -62,7 +62,6 @@
     busybox
     util-linux # 修复idea运行java程序问题
     #tools
-    pritunl-client #openvpn
     google-chrome
     firefox
     wpsoffice-cn
@@ -78,6 +77,7 @@
     sing-geoip
     clash-rs
     eza #ls替代
+    openvpn
     #dev
     alacritty-graphics # rust 开发的终端
     vscode
@@ -100,6 +100,7 @@
     jdk8
     postman
     maven
+    nodejs_24
     #dev
     go
     rustup
