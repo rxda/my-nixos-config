@@ -274,6 +274,29 @@
     enableSSHSupport = true;
   };
 
+   # 启用 Samba 服务
+  services.samba = {
+    enable = true;
+    shares = {
+      # 定义一个名为 "shared" 的共享
+      shared = {
+        path = "/home/rxda/Documents"; # 替换为你的共享目录路径
+        browseable = "yes";
+        "read only" = "no";
+        "valid users" = "rxda";
+        "create mask" = "0755";
+        "force user" = "rxda";
+        "directory mask" = "0755";
+      };
+    };
+    openFirewall = true; # 自动在防火墙中打开必要的端口
+  };
+
+  # 为了让 Windows 能发现 Samba 共享，建议启用 wsdd
+  services.samba-wsdd.enable = true;
+  networking.firewall.allowedTCPPorts = [ 5357 ];
+  networking.firewall.allowedUDPPorts = [ 3702 ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
