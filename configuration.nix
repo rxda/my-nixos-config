@@ -59,7 +59,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       # sarasa-gothic  #更纱黑体
       source-code-pro
       hack-font
@@ -277,7 +277,7 @@
    # 启用 Samba 服务
   services.samba = {
     enable = true;
-    shares = {
+    settings = {
       # 定义一个名为 "shared" 的共享
       shared = {
         path = "/home/rxda/Documents"; # 替换为你的共享目录路径

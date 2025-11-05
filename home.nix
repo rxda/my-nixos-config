@@ -118,10 +118,12 @@
   ];
 
   # git 相关配置
-  programs.git = {
+  programs.git.settings = {
     enable = true;
-    userName = "RXDA";
-    userEmail = "sxfscool@gmail.com";
+    user = {
+      name = "RXDA";
+      email = "sxfscool@gmail.com";
+    };
   };
 
   # 启用 starship，这是一个漂亮的 shell 提示符
