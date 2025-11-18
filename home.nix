@@ -5,8 +5,6 @@
   home.username = "rxda";
   home.homeDirectory = "/home/rxda";
 
-  # vscode扩展仓库
-  # nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 
   # 直接将当前文件夹的配置文件，链接到 Home 目录下的指定位置
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -80,7 +78,6 @@
     openvpn
     #dev
     alacritty-graphics # rust 开发的终端
-    vscode
     yazi
     direnv
     virtualbox
@@ -118,12 +115,17 @@
   ];
 
   # git 相关配置
-  programs.git.settings = {
+  # programs.git.settings = {
+  #   enable = true;
+  #   user = {
+  #     name = "RXDA";
+  #     email = "sxfscool@gmail.com";
+  #   };
+  # };
+  programs.git = {
     enable = true;
-    user = {
-      name = "RXDA";
-      email = "sxfscool@gmail.com";
-    };
+    userName = "RXDA";
+    userEmail = "sxfscool@gmail.com";
   };
 
   # 启用 starship，这是一个漂亮的 shell 提示符
@@ -163,98 +165,97 @@
     history.size = 1000000;
   };
 
-  #vscode 扩展
-  # programs.vscode = {
-  #   enable = true;
-  #   extensions = with pkgs; [
-  #     vscode-extensions.akamud.vscode-theme-onedark
-  #     vscode-extensions.arrterian.nix-env-selector
-  #     vscode-extensions.arturodent.find-and-transform
-  #     vscode-extensions.betterthantomorrow.calva
-  #     vscode-extensions.betterthantomorrow.calva-spritz
-  #     vscode-extensions.bierner.markdown-mermaid
-  #     vscode-extensions.bpruitt-goddard.mermaid-markdown-syntax-highlighting
-  #     vscode-extensions.clinyong.vscode-css-modules
-  #     vscode-extensions.dlahmad.dracula-for-rust-theme
-  #     vscode-extensions.docker.docker
-  #     vscode-extensions.emilast.logfilehighlighter
-  #     vscode-extensions.eriklynd.json-tools
-  #     vscode-extensions.esbenp.prettier-vscode
-  #     vscode-extensions.everettjf.filter-line
-  #     vscode-extensions.fill-labs.dependi
-  #     vscode-extensions.golang.go
-  #     vscode-extensions.ianic.zig-language-extras
-  #     vscode-extensions.ibm.output-colorizer
-  #     vscode-extensions.iliazeus.vscode-ansi
-  #     vscode-extensions.irongeek.vscode-env
-  #     vscode-extensions.isudox.vscode-jetbrains-keybindings
-  #     vscode-extensions.jakebecker.elixir-ls
-  #     vscode-extensions.janisdd.vscode-edit-csv
-  #     vscode-extensions.jnoortheen.nix-ide
-  #     vscode-extensions.mads-hartmann.bash-ide-vscode
-  #     vscode-extensions.marlon407.code-groovy
-  #     vscode-extensions.mechatroner.rainbow-csv
-  #     vscode-extensions.mkhl.direnv
-  #     vscode-extensions.ms-azuretools.vscode-containers
-  #     vscode-extensions.ms-azuretools.vscode-docker
-  #     vscode-extensions.ms-python.autopep8
-  #     vscode-extensions.ms-python.debugpy
-  #     vscode-extensions.ms-python.isort
-  #     vscode-extensions.ms-python.python
-  #     vscode-extensions.ms-python.vscode-pylance
-  #     vscode-extensions.ms-python.vscode-python-envs
-  #     vscode-extensions.ms-toolsai.jupyter
-  #     vscode-extensions.ms-toolsai.jupyter-keymap
-  #     vscode-extensions.ms-toolsai.jupyter-renderers
-  #     vscode-extensions.ms-toolsai.vscode-jupyter-cell-tags
-  #     vscode-extensions.ms-toolsai.vscode-jupyter-slideshow
-  #     vscode-extensions.ms-vscode-remote.remote-ssh
-  #     vscode-extensions.ms-vscode-remote.remote-ssh-edit
-  #     vscode-extensions.ms-vscode.cmake-tools
-  #     vscode-extensions.ms-vscode.cpptools
-  #     vscode-extensions.ms-vscode.cpptools-extension-pack
-  #     vscode-extensions.ms-vscode.cpptools-themes
-  #     vscode-extensions.ms-vscode.hexeditor
-  #     vscode-extensions.ms-vscode.remote-explorer
-  #     vscode-extensions.ms-vscode.vscode-typescript-next
-  #     vscode-extensions.naco-siren.gradle-language
-  #     vscode-extensions.pinage404.nix-extension-pack
-  #     vscode-extensions.quicktype.quicktype
-  #     vscode-extensions.randomfractalsinc.geo-data-viewer
-  #     vscode-extensions.redhat.java
-  #     vscode-extensions.redhat.vscode-xml
-  #     vscode-extensions.rust-lang.rust-analyzer
-  #     vscode-extensions.scala-lang.scala
-  #     vscode-extensions.scalameta.metals
-  #     vscode-extensions.shakram02.bash-beautify
-  #     vscode-extensions.tabbyml.vscode-tabby
-  #     vscode-extensions.tamasfe.even-better-toml
-  #     vscode-extensions.tobias-faller.vt100-syntax-highlighting
-  #     vscode-extensions.twxs.cmake
-  #     vscode-extensions.vadimcn.vscode-lldb
-  #     vscode-extensions.visualstudioexptteam.intellicode-api-usage-examples
-  #     vscode-extensions.visualstudioexptteam.vscodeintellicode
-  #     vscode-extensions.vmware.vscode-spring-boot
-  #     vscode-extensions.vscjava.vscode-gradle
-  #     vscode-extensions.vscjava.vscode-java-debug
-  #     vscode-extensions.vscjava.vscode-java-dependency
-  #     vscode-extensions.vscjava.vscode-java-pack
-  #     vscode-extensions.vscjava.vscode-java-test
-  #     vscode-extensions.vscjava.vscode-lombok
-  #     vscode-extensions.vscjava.vscode-maven
-  #     vscode-extensions.vscjava.vscode-spring-boot-dashboard
-  #     vscode-extensions.vscode-icons-team.vscode-icons
-  #     vscode-extensions.vstirbu.vscode-mermaid-preview
-  #     vscode-extensions.vue.volar
-  #     vscode-extensions.wayou.vscode-todo-highlight
-  #     vscode-extensions.webfreak.debug
-  #     vscode-extensions.yangdada.vscode-geojsonviewer
-  #     vscode-extensions.yzhang.markdown-all-in-one
-  #     vscode-extensions.zainchen.json
-  #     vscode-extensions.ziglang.vscode-zig
-  #     vscode-extensions.zxh404.vscode-proto3
-  #   ];
-  # };
+  # vscode 扩展
+  programs.vscode = {
+    enable = true;
+    mutableExtensionsDir = false;
+    extensions = with pkgs; [
+      vscode-marketplace.akamud.vscode-theme-onedark
+      vscode-marketplace.arrterian.nix-env-selector
+      vscode-marketplace.arturodent.find-and-transform
+      vscode-marketplace.betterthantomorrow.calva
+      vscode-marketplace.betterthantomorrow.calva-spritz
+      vscode-marketplace.bierner.markdown-mermaid
+      vscode-marketplace.bpruitt-goddard.mermaid-markdown-syntax-highlighting
+      vscode-marketplace.clinyong.vscode-css-modules
+      vscode-marketplace.dlahmad.dracula-for-rust-theme
+      vscode-marketplace.docker.docker
+      vscode-marketplace.emilast.logfilehighlighter
+      vscode-marketplace.eriklynd.json-tools
+      vscode-marketplace.esbenp.prettier-vscode
+      vscode-marketplace.everettjf.filter-line
+      vscode-marketplace.fill-labs.dependi
+      vscode-marketplace.golang.go
+      vscode-marketplace.ianic.zig-language-extras
+      vscode-marketplace.ibm.output-colorizer
+      vscode-marketplace.iliazeus.vscode-ansi
+      vscode-marketplace.irongeek.vscode-env
+      vscode-marketplace.isudox.vscode-jetbrains-keybindings
+      vscode-marketplace.jakebecker.elixir-ls
+      vscode-marketplace.janisdd.vscode-edit-csv
+      vscode-marketplace.jnoortheen.nix-ide
+      vscode-marketplace.mads-hartmann.bash-ide-vscode
+      vscode-marketplace.marlon407.code-groovy
+      vscode-marketplace.mechatroner.rainbow-csv
+      vscode-marketplace.mkhl.direnv
+      vscode-marketplace.ms-azuretools.vscode-containers
+      vscode-marketplace.ms-azuretools.vscode-docker
+      vscode-marketplace.ms-python.autopep8
+      vscode-marketplace.ms-python.debugpy
+      vscode-marketplace.ms-python.isort
+      vscode-marketplace.ms-python.python
+      vscode-marketplace.ms-python.vscode-pylance
+      vscode-marketplace.ms-python.vscode-python-envs
+      vscode-marketplace.ms-toolsai.jupyter
+      vscode-marketplace.ms-toolsai.jupyter-keymap
+      vscode-marketplace.ms-toolsai.jupyter-renderers
+      vscode-marketplace.ms-toolsai.vscode-jupyter-cell-tags
+      vscode-marketplace.ms-toolsai.vscode-jupyter-slideshow
+      vscode-marketplace.ms-vscode-remote.remote-ssh
+      vscode-marketplace.ms-vscode-remote.remote-ssh-edit
+      vscode-marketplace.ms-vscode.cmake-tools
+      vscode-marketplace.ms-vscode.cpptools
+      vscode-marketplace.ms-vscode.hexeditor
+      vscode-marketplace.ms-vscode.remote-explorer
+      vscode-marketplace.ms-vscode.vscode-typescript-next
+      vscode-marketplace.naco-siren.gradle-language
+      vscode-marketplace.jnoortheen.nix-ide
+      vscode-marketplace.mkhl.direnv
+      vscode-marketplace.arrterian.nix-env-selector
+      vscode-marketplace.quicktype.quicktype
+      vscode-marketplace.randomfractalsinc.geo-data-viewer
+      vscode-marketplace.redhat.java
+      vscode-marketplace.redhat.vscode-xml
+      vscode-marketplace.rust-lang.rust-analyzer
+      vscode-marketplace.scala-lang.scala
+      vscode-marketplace.scalameta.metals
+      vscode-marketplace.shakram02.bash-beautify
+      vscode-marketplace.tabbyml.vscode-tabby
+      vscode-marketplace.tamasfe.even-better-toml
+      vscode-marketplace.tobias-faller.vt100-syntax-highlighting
+      vscode-marketplace.twxs.cmake
+      vscode-marketplace-universal.vadimcn.vscode-lldb
+      vscode-marketplace.vmware.vscode-spring-boot
+      vscode-marketplace.vscjava.vscode-gradle
+      vscode-marketplace.vscjava.vscode-java-debug
+      vscode-marketplace.vscjava.vscode-java-dependency
+      vscode-marketplace.vscjava.vscode-java-pack
+      vscode-marketplace.vscjava.vscode-java-test
+      vscode-marketplace.vscjava.vscode-lombok
+      vscode-marketplace.vscjava.vscode-maven
+      vscode-marketplace.vscjava.vscode-spring-boot-dashboard
+      vscode-marketplace.vscode-icons-team.vscode-icons
+      vscode-marketplace.vstirbu.vscode-mermaid-preview
+      vscode-marketplace.vue.volar
+      vscode-marketplace.wayou.vscode-todo-highlight
+      vscode-marketplace.webfreak.debug
+      vscode-marketplace.yangdada.vscode-geojsonviewer
+      vscode-marketplace.yzhang.markdown-all-in-one
+      vscode-marketplace.zainchen.json
+      vscode-marketplace.ziglang.vscode-zig
+      vscode-marketplace.zxh404.vscode-proto3
+    ];
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
