@@ -18,11 +18,11 @@
   outputs = inputs@{ nixpkgs, home-manager, nix-vscode-extensions, ... }: {
     nixosConfigurations = {
       # 这里的 my-nixos 替换成你的主机名称
-      nixos = nixpkgs.lib.nixosSystem {
+      rxda-xiaomi-notebook = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./niri.nix
+          # ./niri.nix
           # 将 home-manager 配置为 nixos 的一个 module
           # 这样在 nixos-rebuild switch 时，home-manager 配置也会被自动部署
           ({ pkgs, ... }: {
@@ -38,7 +38,7 @@
             home-manager.users.rxda = {
               imports = [
                 ./home.nix
-                ./home-niri.nix
+                # ./home-niri.nix
               ];
             };
 
