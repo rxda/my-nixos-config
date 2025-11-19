@@ -20,6 +20,7 @@
     wl-clipboard  # 剪贴板
     grim          # 截图
     slurp         # 截图选区
+    wlogout       # vuxiao
     
     # 音量/亮度调节工具
     pamixer
