@@ -33,8 +33,8 @@
     # ============================================================
     clash-meta          # Clash 的 Meta 内核 (支持更多协议)
     # clash-rs            # Rust 编写的 Clash
-    # sing-box            # 新一代通用代理平台 (内核)
-    # gui-for-singbox     # Sing-box 的图形界面
+    sing-box            # 新一代通用代理平台 (内核)
+    gui-for-singbox     # Sing-box 的图形界面
     # sing-geoip          # Sing-box 用的 IP 数据库
     openvpn             # 传统的 VPN 客户端
     easytier            # 简单的 P2P 组网工具 (类似 ZeroTier)
@@ -68,6 +68,7 @@
     git                 # 版本控制 (虽然有 programs.git，这里装一下防身)
     postman             # API 接口测试工具
     android-tools       # 安卓调试工具 (adb, fastboot)
+    nixpkgs-reviewFull
 
     # --- 编辑器与终端 ---
     jetbrains.idea-ultimate # IntelliJ IDEA 旗舰版 (Java IDE)
