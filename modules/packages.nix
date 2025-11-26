@@ -69,6 +69,7 @@
     postman             # API 接口测试工具
     android-tools       # 安卓调试工具 (adb, fastboot)
     nixpkgs-reviewFull
+    gh
 
     # --- 编辑器与终端 ---
     jetbrains.idea-ultimate # IntelliJ IDEA 旗舰版 (Java IDE)
