@@ -22,7 +22,6 @@
     usbutils            # 查看 USB 设备 (lsusb)
     lshw                # 显示硬件详细信息
     neofetch            # 那个显示 Linux Logo 和系统信息的帅气工具
-    busybox             # 嵌入式瑞士军刀 (包含精简版常用命令)
     util-linux          # Linux 核心工具集 (你提到用于修复 IDEA 运行 Java 问题)
     eza                 # ls 的现代替代品 (支持图标和颜色)
     file                # 查看文件类型的工具
