@@ -6,7 +6,7 @@
     mutableExtensionsDir = false;
     
     # 注意：这一大坨扩展列表
-    extensions = with pkgs; [
+    profiles.default.extensions = with pkgs; [
       vscode-marketplace.akamud.vscode-theme-onedark
       vscode-marketplace.arrterian.nix-env-selector
       vscode-marketplace.arturodent.find-and-transform
@@ -68,7 +68,7 @@
       vscode-marketplace.tamasfe.even-better-toml
       vscode-marketplace.tobias-faller.vt100-syntax-highlighting
       vscode-marketplace.twxs.cmake
-      vscode-marketplace-universal.vadimcn.vscode-lldb
+      # vscode-marketplace-universal.vadimcn.vscode-lldb
       vscode-marketplace.vmware.vscode-spring-boot
       vscode-marketplace.vscjava.vscode-gradle
       vscode-marketplace.vscjava.vscode-java-debug

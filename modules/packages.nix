@@ -45,7 +45,9 @@
     fiddler-everywhere  # HTTP/HTTPS 抓包调试代理
     baidupcs-go         # 百度网盘的第三方 Go 语言客户端
     gnugrep             # GNU 版本的 grep (搜索文本)
-
+    filezilla           # FTP客户端
+    jmtpfs              # FUSE filesystem for MTP devices like Android phones
+    gvfs                # Virtual Filesystem support library
     # ============================================================
     # 开发环境 (Dev)
     # ============================================================
