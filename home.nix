@@ -7,6 +7,7 @@
     ./modules/git.nix
     ./modules/vscode.nix
     ./modules/packages.nix
+    ./modules/rust.nix
   ];
 
   # 用户基础信息
