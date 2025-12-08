@@ -59,7 +59,6 @@
 
     # --- 编程语言与编译器 ---
     go                  # Go 语言环境
-    rustup              # Rust 语言安装器
     gcc                 # C/C++ 编译器
     jdk8                # Java 8 开发包 (为了兼容旧项目?)
     maven               # Java 项目构建工具
