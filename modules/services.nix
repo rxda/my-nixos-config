@@ -42,7 +42,7 @@
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
-    trustedInterfaces = ["wlp4s0" "virbr0"];
+    trustedInterfaces = ["wlp4s0" "virbr0" "docker0"];
     # Samba wsdd 需要的端口
     allowedTCPPorts = [ 5357 ];
     allowedUDPPorts = [ 3702 ];
