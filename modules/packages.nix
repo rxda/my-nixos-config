@@ -59,7 +59,6 @@
 
     # --- 编程语言与编译器 ---
     go                  # Go 语言环境
-    gcc                 # C/C++ 编译器
     jdk8                # Java 8 开发包 (为了兼容旧项目?)
     maven               # Java 项目构建工具
     nodejs_24           # Node.js 24
