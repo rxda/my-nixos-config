@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, lib, ... }:
 {
   # 1. 安装必要的工具
   home.packages = with pkgs; [
@@ -8,7 +8,7 @@
     # 编译加速三件套
     sccache  # 编译缓存
     mold     # 现代高速链接器
-    clang    # 用作 mold 的驱动程序
+    (lib.lowPrio clang)    # 用作 mold 的驱动程序
   ];
 
   # 2. 设置环境变量
@@ -20,24 +20,17 @@
 
   # 3. 生成全局 Cargo 配置
   # 这是魔法发生的地方
-  home.file.".cargo/config.toml".text = lib.generators.toTOML {
-    # [build] 章节：缓存与目录
-    build = {
-      # 使用 sccache 包装 rustc，拦截编译请求进行缓存
-      rustc-wrapper = "${pkgs.sccache}/bin/sccache";
-      
-      # 全局统一的构建目录，所有项目共享，节省几十G空间
-      target-dir = "${config.home.homeDirectory}/.cargo/target_cache";
-    };
+  home.file.".cargo/config.toml".text = ''
+    [build]
+    # 使用 sccache 包装器
+    rustc-wrapper = "${pkgs.sccache}/bin/sccache"
+    # 全局 Target 目录
+    target-dir = "${config.home.homeDirectory}/.cargo/target_cache"
 
-    # [target] 章节：针对 Linux 使用 Mold 链接器
-    "target.x86_64-unknown-linux-gnu" = {
-      # 指定 clang 作为链接驱动器
-      linker = "${pkgs.clang}/bin/clang";
-      # 告诉 clang 使用 mold 进行实际链接
-      rustflags = [
-        "-C" "link-arg=-fuse-ld=${pkgs.mold}/bin/ld.mold"
-      ];
-    };
-  };
+    [target.x86_64-unknown-linux-gnu]
+    # 指定 clang 为驱动
+    linker = "${pkgs.clang}/bin/clang"
+    # 指定 mold 为链接器
+    rustflags = ["-C", "link-arg=-fuse-ld=${pkgs.mold}/bin/ld.mold"]
+  '';
 }
