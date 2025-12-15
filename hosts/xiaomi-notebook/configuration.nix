@@ -6,11 +6,11 @@
       ./hardware-configuration.nix
       
       # 引入拆分后的系统模块
-      ./modules/nvidia.nix
-      ./modules/desktop.nix
-      ./modules/virtualization.nix
-      ./modules/services.nix
-      ./modules/variables.nix
+      ../../system/nvidia.nix
+      ../../system/desktop.nix
+      ../../system/virtualization.nix
+      ../../system/services.nix
+      ../../system/variables.nix
     ];
 
   # --- 引导与内核 ---
