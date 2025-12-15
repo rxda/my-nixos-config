@@ -87,7 +87,6 @@
       vscode-marketplace.yzhang.markdown-all-in-one
       vscode-marketplace.zainchen.json
       vscode-marketplace.ziglang.vscode-zig
-      vscode-marketplace.zxh404.vscode-proto3
       vscode-marketplace.github.github-vscode-theme
     ];
   };
