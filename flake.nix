@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nixos-hardware.url="github:NixOS/nixos-hardware/master";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nix-vscode-extensions, ... }: {
@@ -48,6 +49,8 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/link-eq12/configuration.nix
+          inputs.nixos-hardware.nixosModules.common-cpu-intel
+          inputs.nixos-hardware.nixosModules.common-gpu-intel
           ({ pkgs, ... }: {
           nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
           })
