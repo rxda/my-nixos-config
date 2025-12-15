@@ -22,6 +22,7 @@
   # --- Incus ---
   virtualisation.incus = {
     enable = true;
+    ui.enable = true;
     preseed = {
       networks = [
         {
@@ -63,6 +64,8 @@
     };
   };
   networking.nftables.enable = true;
+  # 开放防火墙端口，允许局域网访问 Incus API/UI
+  networking.firewall.allowedTCPPorts = [ 8443 ];
   users.users.rxda.extraGroups = ["incus-admin"];
   networking.firewall.trustedInterfaces = [ "incusbr0" ];
 }
