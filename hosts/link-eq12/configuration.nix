@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       
       # 引入拆分后的系统模块
-      # ../../system/nvidia.nix
       ../../system/desktop.nix
       ../../system/virtualization.nix
       ../../system/services.nix
