@@ -3,11 +3,11 @@
 {
   # 引入拆分后的模块
   imports = [
-    ./modules/shell.nix
-    ./modules/git.nix
-    ./modules/vscode.nix
-    ./modules/packages.nix
-    ./modules/rust.nix
+    ./shell.nix
+    ./git.nix
+    ./vscode.nix
+    ./packages.nix
+    ./rust.nix
   ];
 
   # 用户基础信息
