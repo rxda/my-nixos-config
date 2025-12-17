@@ -11,6 +11,34 @@
       ../../system/services.nix
       ../../system/variables.nix
     ];
+  
+  # 1. N100 建议使用最新内核，对核显支持更好
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # 2. 强制使用 modesetting 驱动 (不要用 "intel" legacy 驱动)
+  services.xserver.videoDrivers = [ "modesetting" ];
+
+  # 3. 显卡硬件加速配置
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      # ！！！关键点！！！
+      # N100 必须使用 intel-media-driver (iHD)
+      intel-media-driver 
+            
+      # 这两个是通用的，可以留着
+      libva-vdpau-driver
+      libvdpau-va-gl
+    ];
+  };
+  
+  # 4. 修复 Intel GPU 在某些电源状态下的屏幕闪烁/光标丢失问题
+  boot.kernelParams = [ 
+    "i915.enable_psr=0"  # 关闭面板自刷新
+    "i915.enable_guc=2"  # 强制开启 GuC (Firmware loading)
+  ];
+
+
 
   # --- 引导与内核 ---
   boot.loader.systemd-boot.enable = true;
