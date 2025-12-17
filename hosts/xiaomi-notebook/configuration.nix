@@ -18,7 +18,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # --- 网络标识 ---
-  networking.hostName = "rxda-xiaomi-notebook"; 
+  networking.hostName = "xiaomi-notebook"; 
   networking.networkmanager.enable = true;
 
   # --- 时区与语言 ---
