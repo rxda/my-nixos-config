@@ -11,6 +11,7 @@
       ../../system/virtualization.nix
       ../../system/services.nix
       ../../system/variables.nix
+      ../../system/singbox.nix
     ];
 
   # --- 引导与内核 ---
