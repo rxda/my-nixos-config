@@ -19,7 +19,7 @@
   outputs = inputs@{ nixpkgs, home-manager, nix-vscode-extensions, ... }: {
     nixosConfigurations = {
       # 这里的 my-nixos 替换成你的主机名称
-      rxda-xiaomi-notebook = nixpkgs.lib.nixosSystem {
+      xiaomi-notebook = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/xiaomi-notebook/configuration.nix
