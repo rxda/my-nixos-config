@@ -14,15 +14,18 @@
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nixos-hardware.url="github:NixOS/nixos-hardware/master";
+    agenix.url = "github:ryantm/agenix";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nix-vscode-extensions, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, agenix, vscode-server, nix-vscode-extensions, ... }: {
     nixosConfigurations = {
       # 这里的 my-nixos 替换成你的主机名称
       xiaomi-notebook = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts/xiaomi-notebook/configuration.nix
+          vscode-server.nixosModules.default
           # ./niri.nix
           # 将 home-manager 配置为 nixos 的一个 module
           # 这样在 nixos-rebuild switch 时，home-manager 配置也会被自动部署
@@ -49,6 +52,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/link-eq12/configuration.nix
+          vscode-server.nixosModules.default
           inputs.nixos-hardware.nixosModules.common-cpu-intel
           inputs.nixos-hardware.nixosModules.common-gpu-intel
           ({ pkgs, ... }: {
