@@ -8,6 +8,7 @@
     ./vscode.nix
     ./packages.nix
     ./rust.nix
+    ./gnome.nix
   ];
 
   # 用户基础信息
