@@ -25,6 +25,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/xiaomi-notebook/configuration.nix
+          agenix.nixosModules.default
           vscode-server.nixosModules.default
           # ./niri.nix
           # 将 home-manager 配置为 nixos 的一个 module
@@ -52,6 +53,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/link-eq12/configuration.nix
+          agenix.nixosModules.default
           vscode-server.nixosModules.default
           inputs.nixos-hardware.nixosModules.common-cpu-intel
           inputs.nixos-hardware.nixosModules.common-gpu-intel

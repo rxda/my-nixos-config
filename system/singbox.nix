@@ -14,7 +14,8 @@
   systemd.services.sing-box = {
     description = "Sing-box Service";
     wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
     
     serviceConfig = {
       # 指定配置文件路径 (这个路径是可写的)
@@ -34,6 +35,7 @@
       # CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE";
       # AmbientCapabilities = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE";
     };
+  };
 
   # 3. 定义更新脚本 (一次性服务)
   systemd.services.sing-box-update = {
@@ -87,7 +89,6 @@
     };
   };
 
-  }
 }
 
 
