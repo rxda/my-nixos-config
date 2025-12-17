@@ -57,7 +57,7 @@
     nix-index           # 提供 command-not-found 功能 (查找命令属于哪个包)
     direnv              # 进入目录自动加载环境变量 (开发神器)
     # agenix-cli          # agenix加密
-    # ragenix
+    ragenix
     # --- 编程语言与编译器 ---
     go                  # Go 语言环境
     jdk8                # Java 8 开发包 (为了兼容旧项目?)

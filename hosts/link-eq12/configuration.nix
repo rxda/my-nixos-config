@@ -10,6 +10,7 @@
       ../../system/virtualization.nix
       ../../system/services.nix
       ../../system/variables.nix
+      ../../system/singbox.nix
     ];
   
   # 1. N100 建议使用最新内核，对核显支持更好
