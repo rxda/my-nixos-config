@@ -4,7 +4,7 @@
 
   # 1. 引入 dae 模块
   imports = [
-      inputs.daeuniverse.nixosModules.dae
+      inputs.daeuniverse.nixosModules.daed
   ];
 
   # 2. 开启内核转发功能 (这是做网关的必须步骤)
