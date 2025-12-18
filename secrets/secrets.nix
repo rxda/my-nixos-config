@@ -9,11 +9,11 @@ let
 
   # --- 2. 主机公钥 (System Keys) ---
   # 作用：允许 这台电脑 在开机/部署时解密文件
-  system_eq12    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOi98U1kTP0MP4GolNcg3csOmnPygvOOx3b23a9EBY7R";
-  # system_xiaomi = "ssh-ed25519 AAAA...<Laptop的主机公钥>...";
+  system_eq12   = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOi98U1kTP0MP4GolNcg3csOmnPygvOOx3b23a9EBY7R";
+  system_xiaomi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZl8cppETMB71druhUoqbqFPuAgh7Oy7xnzICz/aEYX";
   
   # 把所有“机器”放在一组
-  all_systems = [ system_eq12 ];
+  all_systems = [ system_eq12 system_xiaomi ];
 in
 {
   # 场景 A：两台电脑都要用的秘密 (比如 WiFi 密码、Sing-box 订阅链接)
