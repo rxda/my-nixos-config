@@ -2,6 +2,12 @@
 
 {
 
+  age.secrets.singbox-url = {
+    file = ../secrets/singbox-url.age;
+    owner = "root"; # 因为是 systemd (root) 要读它
+    mode = "400";
+  };
+  
   # 1. 引入 dae 模块
   imports = [
       inputs.daeuniverse.nixosModules.daed
