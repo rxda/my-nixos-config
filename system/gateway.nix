@@ -1,6 +1,15 @@
 # modules/gateway.nix
 { config, pkgs, lib, ... }:
 
+let
+  # === 在这里集中管理你的网络变量 ===
+  cfg = {
+    interface = "enp2s0";            # 你的物理网卡
+    ipAddress = "192.168.32.110";    # NUC 的固定 IP
+    gateway = "192.168.32.1";       # 你的主路由器 IP
+    tunInterface = "tun0"; # Sing-box 创建的 TUN 网卡名
+  };
+in
 {
 
   # 2. 内核转发
