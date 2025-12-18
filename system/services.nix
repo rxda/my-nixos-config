@@ -44,7 +44,7 @@
   # --- 防火墙 ---
   networking.firewall = {
     enable = true;
-    checkReversePath = "loose";
+    checkReversePath = false;
     trustedInterfaces = ["wlp4s0" "virbr0" "docker0"];
     # Samba wsdd 需要的端口
     allowedTCPPorts = [ 5357 ];
