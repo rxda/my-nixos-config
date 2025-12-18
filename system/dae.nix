@@ -19,21 +19,7 @@
   # 2. 修改 dae 的配置
   services.dae = {
     enable = true;
-
-    # 1. 告诉 dae，你的订阅在 /run/dae/subscription.url 这个临时文件里
     subscription = "/run/dae/subscription.url";
-    
-    # 2. preStart 脚本在“激活施工”阶段运行
-    preStart = ''
-      # 在这个阶段，/run 目录是存在的
-      mkdir -p /run/dae
-      
-      # config.age.secrets.singbox-url.path 在这里被 Nix 替换成字符串 "/run/agenix/singbox-url"
-      # cat 命令在运行时读取这个文件
-      cat ${config.age.secrets.singbox-url.path} > /run/dae/subscription.url
-      
-      chown dae:dae /run/dae/subscription.url
-    '';
 
     config = ''
       global {
@@ -59,5 +45,25 @@
         fallback: proxy
       }
     '';
+  };
+
+  systemd.services.dae = {
+    # 在 dae 服务启动前，先执行我们的脚本
+    preStart = ''
+      # 创建目录
+      mkdir -p /run/dae
+      
+      # 把解密后的 URL 内容写入 dae 即将读取的文件
+      # ${config.age.secrets.singbox-url.path} 会被 Nix 替换成 "/run/agenix/singbox-url"
+      cat ${config.age.secrets.singbox-url.path} > /run/dae/subscription.url
+      
+      # NixOS 上的 dae 服务默认以 "dae" 用户运行，
+      # 我们需要确保它有权限读取这个文件
+      chown dae:dae /run/dae
+      chown dae:dae /run/dae/subscription.url
+    '';
+    
+    # 告诉 systemd，我们的脚本可能会创建文件，需要 root 权限
+    serviceConfig.PermissionsStartOnly = true;
   };
 }
