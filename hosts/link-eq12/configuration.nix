@@ -1,17 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ../../flake/common.nix
-      # 引入拆分后的系统模块
-      ../../system/desktop.nix
-      ../../system/virtualization.nix
-      ../../system/services.nix
-      ../../system/variables.nix
-      ../../system/singbox.nix
-    ];
   
   # 1. N100 建议使用最新内核，对核显支持更好
   boot.kernelPackages = pkgs.linuxPackages_latest;
