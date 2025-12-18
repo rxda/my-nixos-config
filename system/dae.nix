@@ -7,7 +7,7 @@
     owner = "root"; # 因为是 systemd (root) 要读它
     mode = "400";
   };
-  
+
   # 1. 引入 dae 模块
   imports = [
       inputs.daeuniverse.nixosModules.daed
@@ -20,9 +20,20 @@
   services.dae = {
     enable = true;
 
-    # 我们不再直接设置 subscription
-    # 而是让 dae 从一个临时文件里读取
-    subscription = builtins.readFile config.age.secrets.singbox-url.path;
+    # 1. 告诉 dae，你的订阅在 /run/dae/subscription.url 这个临时文件里
+    subscription = "/run/dae/subscription.url";
+    
+    # 2. preStart 脚本在“激活施工”阶段运行
+    preStart = ''
+      # 在这个阶段，/run 目录是存在的
+      mkdir -p /run/dae
+      
+      # config.age.secrets.singbox-url.path 在这里被 Nix 替换成字符串 "/run/agenix/singbox-url"
+      # cat 命令在运行时读取这个文件
+      cat ${config.age.secrets.singbox-url.path} > /run/dae/subscription.url
+      
+      chown dae:dae /run/dae/subscription.url
+    '';
 
     config = ''
       global {
