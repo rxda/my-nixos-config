@@ -16,7 +16,8 @@
         ../system/virtualization.nix
         ../system/services.nix
         ../system/variables.nix
-        ../system/singbox.nix
+        # ../system/singbox.nix
+        ../system/dae.nix
       ];
     };
 
