@@ -4,7 +4,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      
+      ../../flake/common.nix
       # 引入拆分后的系统模块
       ../../system/nvidia.nix
       ../../system/desktop.nix
