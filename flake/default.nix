@@ -16,9 +16,7 @@
         ../system/virtualization.nix
         ../system/services.nix
         ../system/variables.nix
-        # ../system/singbox.nix
-        ../system/dae.nix
-        ../system/disable-hibernate.nix
+        ../system/singbox.nix
       ];
     };
 
@@ -33,7 +31,8 @@
         ../system/virtualization.nix
         ../system/services.nix
         ../system/variables.nix
-        ../system/singbox.nix
+        ../system/dae.nix
+        ../system/disable-hibernate.nix
       ];
     };
   };
