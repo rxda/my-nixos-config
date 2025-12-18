@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -12,7 +12,6 @@
       ../../system/services.nix
       ../../system/variables.nix
       ../../system/singbox.nix
-      ../../system/agenix.nix
     ];
 
   # --- 引导与内核 ---
