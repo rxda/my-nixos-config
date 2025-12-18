@@ -16,7 +16,5 @@ let
   all_systems = [ system_eq12 system_xiaomi ];
 in
 {
-  # 场景 A：两台电脑都要用的秘密 (比如 WiFi 密码、Sing-box 订阅链接)
-  # 谁能编辑？两个用户。 谁能读取？两台机器。
   "singbox-url.age".publicKeys = all_users ++ all_systems;
 }
