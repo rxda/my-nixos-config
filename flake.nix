@@ -10,7 +10,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     agenix.url = "github:ryantm/agenix";
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-    daeuniverse.url = "github:daeuniverse/flake.nix";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
