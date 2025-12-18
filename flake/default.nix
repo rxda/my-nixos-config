@@ -18,6 +18,7 @@
         ../system/variables.nix
         # ../system/singbox.nix
         ../system/dae.nix
+        ../system/disable-hibernate.nix
       ];
     };
 
