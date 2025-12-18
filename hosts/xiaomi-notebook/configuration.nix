@@ -1,18 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ../../flake/common.nix
-      # 引入拆分后的系统模块
-      ../../system/nvidia.nix
-      ../../system/desktop.nix
-      ../../system/virtualization.nix
-      ../../system/services.nix
-      ../../system/variables.nix
-      ../../system/singbox.nix
-    ];
 
   # --- 引导与内核 ---
   boot.loader.systemd-boot.enable = true;
