@@ -6,7 +6,6 @@
     git
     vim
     wget
-    tailscale
     jq
     
     # 截图与 Wayland 工具 (如果你用 Niri 这里的很有用，GNOME 其实自带了)
