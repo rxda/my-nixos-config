@@ -32,7 +32,6 @@
         ../system/services.nix
         ../system/variables.nix
         ../system/singbox.nix
-        ../system/gateway.nix
         ../system/disable-hibernate.nix
       ];
     };
