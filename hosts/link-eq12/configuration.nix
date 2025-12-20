@@ -28,6 +28,11 @@
     "i915.enable_guc=2"  # 强制开启 GuC (Firmware loading)
   ];
 
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+  };
+  networking.firewall.checkReversePath = false;
 
 
   # --- 引导与内核 ---
