@@ -9,8 +9,14 @@
         name = "RXDA";
         email = "sxfscool@gmail.com";
       };
+      signing = {
+        key = "~/.ssh/id_ed25519.pub";
+        signByDefault = true;
+      };
       init.defaultBranch = "main";
       pull.rebase = true;
+      gpg.format = "ssh";
+      
     };
   };
 }
