@@ -9,7 +9,7 @@
   };
 
   # --- Tailscale ---
-  # services.tailscale.enable = true;
+  services.tailscale.enable = true;
   # --- ssh ---
   services.openssh.enable = true;
   # --- vscode-server ---
