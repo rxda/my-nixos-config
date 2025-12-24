@@ -10,8 +10,6 @@
       vscode-marketplace.akamud.vscode-theme-onedark
       vscode-marketplace.arrterian.nix-env-selector
       vscode-marketplace.arturodent.find-and-transform
-      vscode-marketplace.betterthantomorrow.calva
-      vscode-marketplace.betterthantomorrow.calva-spritz
       vscode-marketplace.bierner.markdown-mermaid
       vscode-marketplace.bpruitt-goddard.mermaid-markdown-syntax-highlighting
       vscode-marketplace.clinyong.vscode-css-modules
