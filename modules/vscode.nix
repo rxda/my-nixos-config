@@ -82,12 +82,12 @@
       vscode-marketplace.vstirbu.vscode-mermaid-preview
       vscode-marketplace.vue.volar
       vscode-marketplace.wayou.vscode-todo-highlight
-      vscode-marketplace.webfreak.debug
       vscode-marketplace.yangdada.vscode-geojsonviewer
       vscode-marketplace.yzhang.markdown-all-in-one
       vscode-marketplace.zainchen.json
       vscode-marketplace.ziglang.vscode-zig
       vscode-marketplace.github.github-vscode-theme
+      vscode-extensions.vadimcn.vscode-lldb
     ];
   };
 }

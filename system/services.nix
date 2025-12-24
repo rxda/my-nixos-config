@@ -50,4 +50,10 @@
     allowedTCPPorts = [ 5357 ];
     allowedUDPPorts = [ 3702 ];
   };
+
+  # earlyoom防止死机，反应非常快
+  services.earlyoom.enable = true;
+
+  # 启用 zram 交换内存，可以缓解物理内存不足，且比磁盘 swap 快得多
+  zramSwap.enable = true;
 }

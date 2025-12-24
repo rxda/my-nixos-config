@@ -63,7 +63,8 @@
     maven               # Java 项目构建工具
     nodejs_24           # Node.js 24
     pnpm_10             # 快速的 Node 包管理器
-    
+    pkg-configUpstream  # rust-analyzer依赖
+    lldb
     # --- 开发工具 ---
     git                 # 版本控制 (虽然有 programs.git，这里装一下防身)
     postman             # API 接口测试工具
