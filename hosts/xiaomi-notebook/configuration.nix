@@ -36,8 +36,10 @@
 
   # --- Nix 核心设置 ---
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ "root" "@wheel" ];
+  };
   # 系统版本 (千万别删)
   system.stateVersion = "24.11"; 
 }

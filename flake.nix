@@ -3,14 +3,38 @@
   description = "rxda's NixOS configurations";
 
   inputs = {
-    # --- 你的 Inputs 保持不变 ---
+    # 1. 主 Nixpkgs 源
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    agenix.url = "github:ryantm/agenix";
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    # 2. 让 home-manager 跟随主 nixpkgs
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # 3. 其他工具也全部跟随主 nixpkgs
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
   };
 
   # outputs 不再需要手写参数
