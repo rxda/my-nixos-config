@@ -56,6 +56,7 @@
     nix-init            # 自动将 URL 生成为 nix 软件包配置
     nix-index           # 提供 command-not-found 功能 (查找命令属于哪个包)
     direnv              # 进入目录自动加载环境变量 (开发神器)
+    statix              # 自动修复过时配置
     inputs.agenix.packages.${pkgs.system}.default
     # --- 编程语言与编译器 ---
     go                  # Go 语言环境
@@ -69,8 +70,9 @@
     git                 # 版本控制 (虽然有 programs.git，这里装一下防身)
     postman             # API 接口测试工具
     android-tools       # 安卓调试工具 (adb, fastboot)
-    nixpkgs-reviewFull
-    gh
+    nixpkgs-reviewFull  # nixpkg review工具  
+    gh                  # github cli
+
 
     # --- 编辑器与终端 ---
     jetbrains.idea-ultimate # IntelliJ IDEA 旗舰版 (Java IDE)

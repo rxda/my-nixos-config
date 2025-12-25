@@ -35,6 +35,17 @@
   ];
 
   dconf.settings = {
+    "org/gnome/desktop/wm/keybindings" = {
+      # 禁用“切换应用程序” (原本的 Alt+Tab)
+      switch-applications = [];
+      # 禁用“反向切换应用程序” (原本的 Alt+Shift+Tab)
+      switch-applications-backward = [];
+      
+      # 将 Alt+Tab 绑定到“切换窗口”
+      switch-windows = [ "<Alt>Tab" ];
+      # 将 Alt+Shift+Tab 绑定到“反向切换窗口”
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
+    };
     "org/gnome/shell" = {
       disable-user-extensions = false; # 确保没被全局禁用
       
