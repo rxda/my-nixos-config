@@ -13,6 +13,7 @@
     slurp 
     wl-clipboard 
     mako 
+    inetutils
     
     # GNOME 插件
     gnome-shell-extensions
