@@ -85,6 +85,7 @@
       vscode-marketplace.zainchen.json
       vscode-marketplace.ziglang.vscode-zig
       vscode-marketplace.github.github-vscode-theme
+      vscode-marketplace.quicktype.quicktype
       vscode-extensions.vadimcn.vscode-lldb
     ];
   };
