@@ -35,6 +35,11 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
+    
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # outputs 不再需要手写参数
