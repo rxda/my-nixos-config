@@ -1,9 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs,... }:
 {
   # 1. 安装必要的工具
   home.packages = with pkgs; [
-    # Rust 工具链 (建议用 rustup 管理 rust 版本，比 nixpkgs 直接装更灵活)
-    rustup 
+    inputs.fenix.packages.${pkgs.system}.stable.toolchain
     
     # 编译加速三件套
     sccache  # 编译缓存
