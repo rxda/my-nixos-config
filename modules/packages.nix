@@ -75,11 +75,11 @@
 
 
     # --- 编辑器与终端 ---
-    jetbrains.idea-ultimate # IntelliJ IDEA 旗舰版 (Java IDE)
+    jetbrains.idea          # IntelliJ IDEA 旗舰版 (Java IDE)
     jetbrains.datagrip      # DataGrip (数据库管理 IDE)
     yazi                    # 极速终端文件管理器 (用 Rust 写的)
     alacritty-graphics      # 可能是指支持图形协议的 Alacritty 版本
-
+    ghostty
 
     # ============================================================
     # 日常办公与社交
