@@ -7,7 +7,7 @@
     ./git.nix
     ./vscode.nix
     ./packages.nix
-    ./rust.nix
+    ./template.nix
     ./gnome.nix
   ];
 
