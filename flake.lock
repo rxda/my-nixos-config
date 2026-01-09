@@ -143,6 +143,21 @@
         "type": "github"
       }
     },
+    "my-templates": {
+      "locked": {
+        "lastModified": 1767967939,
+        "narHash": "sha256-Opk6BbY8W9vyR4Zzh4n0SO9qHgksha+W0QUnVKX3Mcc=",
+        "owner": "rxda",
+        "repo": "my-nix-templates",
+        "rev": "8b77df43d9fc8482b0040005fc5d9cab3bd0dee4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rxda",
+        "repo": "my-nix-templates",
+        "type": "github"
+      }
+    },
     "nix-vscode-extensions": {
       "inputs": {
         "nixpkgs": [
@@ -216,6 +231,7 @@
         "fenix": "fenix",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager_2",
+        "my-templates": "my-templates",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

@@ -1,9 +1,9 @@
-{ config, ... }:
+{ inputs, ... }:
 
 {
   nix.registry = {
     my-templates = {
-      to = { type = "path"; path = "${config.home.homeDirectory}/my-nixos-config/templates"; };
+      flake = inputs.my-templates;
     };
   };
 
