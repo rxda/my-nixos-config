@@ -8,14 +8,15 @@ let
   rust-toolchain = inputs.fenix.packages.${system}.combine [
     inputs.fenix.packages.${system}.stable.toolchain
     inputs.fenix.packages.${system}.targets.x86_64-unknown-linux-musl.stable.rust-std
+    inputs.fenix.packages.${system}.targets.x86_64-pc-windows-gnu.stable.rust-std
   ];
 in
 {
   # 1. 安装必要的工具
   home.packages = with pkgs; [
     rust-toolchain
-    pkgs.pkgsCross.musl64.stdenv.cc
-    pkgs.pkgsCross.mingwW64
+    pkgsCross.musl64.stdenv.cc
+    pkgsCross.mingwW64.stdenv.cc
     musl
     # 编译加速三件套
     sccache  # 编译缓存
@@ -36,7 +37,7 @@ in
     CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER = "x86_64-w64-mingw32-gcc";
     
     # 针对 Windows 目标的库路径（解决 lpthread 报错）
-    CARGO_TARGET_X86_64_PC_WINDOWS_GNU_RUSTFLAGS = "-L native=${winPkgs.windows.pthreads}/lib";
+    CARGO_TARGET_X86_64_PC_WINDOWS_GNU_RUSTFLAGS = "-L native=${pkgs.pkgsCross.mingwW64.windows.pthreads}/lib";
   };
 
   # 3. 生成全局 Cargo 配置
