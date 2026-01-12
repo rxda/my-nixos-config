@@ -41,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     my-templates = {
       url = "github:rxda/my-nix-templates";
       inputs.nixpkgs.follows = "nixpkgs";
