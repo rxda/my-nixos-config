@@ -6,15 +6,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   
-  # --- GNOME webdav ---
-  services.gvfs.enable = true;
-  environment.systemPackages = with pkgs; [
-    gnome-online-accounts
-    gvfs
-  ];
-  
-  # 排除不需要的 GNOME 预装软件
-  environment.gnome.excludePackages = with pkgs; [];
   
   # GNOME Keyring (密码环)
   services.gnome.gnome-keyring.enable = true;
@@ -77,7 +68,7 @@
   };
 
 
-    # Enable the GNOME RDP components
+  # Enable the GNOME RDP components
   services.gnome.gnome-remote-desktop.enable = true;
 
   # Ensure the service starts automatically at boot so the settings panel appears
