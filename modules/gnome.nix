@@ -71,7 +71,7 @@
         "status-icons@gnome-shell-extensions.gcampax.github.com"
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
-      ]
+      ];
     };
   };
 

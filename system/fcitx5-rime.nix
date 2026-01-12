@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # 1. 开启输入法支持
@@ -16,10 +16,20 @@
         rime-ice
         # 必要的界面库（解决 GTK/Qt 程序的输入问题）
         fcitx5-gtk
-        # 如果你使用了一些 Qt6 应用，可以添加
-        # kdePackages.fcitx5-qt 
+        libsForQt5.fcitx5-qt  # 针对 Qt5 程序（WPS 主要用这个）
+        kdePackages.fcitx5-qt # 针对 Qt6 程序
       ];
     };
+  };
+
+  environment.variables = {
+    # 很多 Qt 程序只认 "fcitx"，不认 "fcitx5"
+    QT_IM_MODULE = "fcitx";
+    GTK_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    SDL_IM_MODULE = "fcitx";
+    GLFW_IM_MODULE = "ibus";
+    NIXOS_OZONE_WL = "1";
   };
 
   # 2. (可选) 针对 GNOME 的额外优化
@@ -44,7 +54,10 @@
     home.file.".local/share/fcitx5/rime/default.custom.yaml".text = ''
       patch:
         schema_list:
+          - schema: double_pinyin_flypy
           - schema: rime_ice
+        
+        menu/page_size: 5
     '';
 
     dconf.settings."org/gnome/shell" = {

@@ -24,9 +24,6 @@
     # Steam / Proton
     NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
     NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
-    
-    # Fonts
-    XDG_DATA_HOME = "$HOME/nixos-config/Fonts";
 
     # JetBrains Crack VM Options
     IDEA_VM_OPTIONS = "$HOME/Documents/jetbra/vmoptions/idea.vmoptions";
