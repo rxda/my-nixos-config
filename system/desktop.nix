@@ -30,17 +30,6 @@
   # --- 打印 ---
   services.printing.enable = true;
 
-  # --- 输入法 (IBus) ---
-  # 建议：既然你在折腾 Linux，将来可以考虑换 Fcitx5，比 IBus 好用
-  i18n.inputMethod = {
-    type = "ibus";
-    enable = true;
-    ibus.engines = with pkgs.ibus-engines; [
-      libpinyin
-      rime
-    ];
-  };
-
   # --- 字体 ---
   fonts = {
     fontDir.enable = true;
