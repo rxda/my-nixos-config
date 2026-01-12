@@ -47,7 +47,6 @@
     gnugrep             # GNU 版本的 grep (搜索文本)
     filezilla           # FTP客户端
     jmtpfs              # FUSE filesystem for MTP devices like Android phones
-    gvfs                # Virtual Filesystem support library
     # ============================================================
     # 开发环境 (Dev)
     # ============================================================
@@ -72,8 +71,8 @@
     android-tools       # 安卓调试工具 (adb, fastboot)
     nixpkgs-reviewFull  # nixpkg review工具  
     gh                  # github cli
-
-
+    scrcpy              # 安卓
+    
     # --- 编辑器与终端 ---
     jetbrains.idea          # IntelliJ IDEA 旗舰版 (Java IDE)
     jetbrains.datagrip      # DataGrip (数据库管理 IDE)
