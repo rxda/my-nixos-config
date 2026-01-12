@@ -17,7 +17,6 @@
     
     # GNOME 插件
     gnome-shell-extensions
-    gnomeExtensions.dash-to-dock
   ];
 
   # --- 环境变量 ---

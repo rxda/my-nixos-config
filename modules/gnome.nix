@@ -31,7 +31,7 @@
     blur-my-shell         # 让界面有毛玻璃效果
     clipboard-indicator   # 剪贴板历史
     pip-on-top
-    # user-themes         # 如果你想换 Shell 主题，需要这个
+    user-themes         # 如果你想换 Shell 主题，需要这个
   ];
 
   dconf.settings = {
@@ -49,13 +49,17 @@
     "org/gnome/shell" = {
       disable-user-extensions = false; # 确保没被全局禁用
       
-      # 这里必须填 UUID 列表
-      enabled-extensions = [
-        "dash-to-dock@micxgx.gmail.com"
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "blur-my-shell@aunetx"
-        "clipboard-indicator@tudmotu.com"
-        "pip-on-top@rafostar.github.com"
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        # --- 第三方热门插件 (使用 pkgs.gnomeExtensions) ---
+        dash-to-dock.extensionUuid
+        appindicator.extensionUuid
+        blur-my-shell.extensionUuid
+        clipboard-indicator.extensionUuid
+        pip-on-top.extensionUuid
+
+        # --- GNOME 官方内置扩展 (通常由 gnome-shell-extensions 包提供) ---
+        # 注意：官方扩展在 Nixpkgs 中通常是一组，UUID 比较固定，可以直接写字符串
+        # 或者使用 pkgs.gnome-shell-extensions 里面的内置属性（如果存在）
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
@@ -67,7 +71,7 @@
         "status-icons@gnome-shell-extensions.gcampax.github.com"
         "system-monitor@gnome-shell-extensions.gcampax.github.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
-      ];
+      ]
     };
   };
 
