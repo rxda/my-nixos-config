@@ -8,8 +8,6 @@
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     fuzzel
-    vesktop
-    kitty
   ];
 
   home-manager.users.rxda = {

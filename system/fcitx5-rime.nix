@@ -26,7 +26,6 @@
   environment.variables = {
     # 很多 Qt 程序只认 "fcitx"，不认 "fcitx5"
     QT_IM_MODULE = "fcitx";
-    GTK_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
     GLFW_IM_MODULE = "ibus";
