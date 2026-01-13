@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 
 {
+  # !!!安装后不生效的话，删除~/.local/share/fcitx5/rime/build，重新部署rime
   # 1. 开启输入法支持
   i18n.inputMethod = {
     enable = true;
