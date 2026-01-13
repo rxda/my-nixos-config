@@ -8,12 +8,13 @@
     enableSSHSupport = true;
   };
 
+  # 二进制兼容 
+  programs.nix-ld.enable = true;
+
   # --- Tailscale ---
   services.tailscale.enable = true;
   # --- ssh ---
   services.openssh.enable = true;
-  # --- vscode-server ---
-  services.vscode-server.enable = true;
   # --- Steam ---
   programs.steam = {
     enable = true;
