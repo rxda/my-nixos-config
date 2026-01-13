@@ -5,7 +5,7 @@
     enable = true;
     mutableExtensionsDir = false;
 
-    userSettings = {
+    profiles.default.userSettings = {
       # 开启自动保存，建议使用 afterDelay
       "files.autoSave" = "afterDelay";
       # 设置自动保存延迟（毫秒），1000 毫秒即 1 秒

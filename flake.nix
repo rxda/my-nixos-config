@@ -48,7 +48,6 @@
 
     my-templates = {
       url = "github:rxda/my-nix-templates";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
