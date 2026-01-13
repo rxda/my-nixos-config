@@ -268,7 +268,6 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager_2",
         "my-templates": "my-templates",
-        "niri-flake": "niri-flake",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
