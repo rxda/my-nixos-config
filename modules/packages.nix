@@ -72,6 +72,7 @@
     nixpkgs-reviewFull  # nixpkg review工具  
     gh                  # github cli
     scrcpy              # 安卓
+    git-filter-repo
     
     # --- 编辑器与终端 ---
     jetbrains.idea          # IntelliJ IDEA 旗舰版 (Java IDE)
