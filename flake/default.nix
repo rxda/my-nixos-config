@@ -18,7 +18,6 @@
         ../system/variables.nix
         ../system/singbox.nix
         ../system/fcitx5-rime.nix
-        ../system/niri.nix
       ];
     };
 
@@ -36,7 +35,6 @@
         ../system/singbox.nix
         ../system/disable-hibernate.nix
         ../system/fcitx5-rime.nix
-        ../system/niri.nix
       ];
     };
   };
