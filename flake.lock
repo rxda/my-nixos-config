@@ -3,7 +3,9 @@
     "agenix": {
       "inputs": {
         "darwin": "darwin",
-        "home-manager": "home-manager",
+        "home-manager": [
+          "home-manager"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -105,27 +107,6 @@
     "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "agenix",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1745494811,
-        "narHash": "sha256-YZCh2o9Ua1n9uCvrvi5pRxtuVNml8X2a03qIFfRKpFs=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "abfad3d2958c9e6300a883bd443512c55dfeb1be",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
           "nixpkgs"
         ]
       },
@@ -145,11 +126,11 @@
     },
     "my-templates": {
       "locked": {
-        "lastModified": 1768292897,
-        "narHash": "sha256-Tv6CQUDqZW7JmVJZcVpUvRq5Zloz62HSA2zgPbaP2EM=",
+        "lastModified": 1768293638,
+        "narHash": "sha256-M/kcH0H8vbKLe4Y478EhJ5SITyrrng9ekTJATviWyMM=",
         "owner": "rxda",
         "repo": "my-nix-templates",
-        "rev": "409fb524fda6797003625702f5920d6ab24c5214",
+        "rev": "08c4d100592639e95d132f64bb98fbc3bfabe3c0",
         "type": "github"
       },
       "original": {
@@ -250,7 +231,7 @@
         "agenix": "agenix",
         "fenix": "fenix",
         "flake-parts": "flake-parts",
-        "home-manager": "home-manager_2",
+        "home-manager": "home-manager",
         "my-templates": "my-templates",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
