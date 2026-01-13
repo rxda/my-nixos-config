@@ -4,7 +4,6 @@
   imports = [
     # 1. 引入 Agenix 和 VSCode Server
     inputs.agenix.nixosModules.default
-    inputs.vscode-server.nixosModules.default
 
     # 2. 引入 Home Manager 的通用配置
     inputs.home-manager.nixosModules.home-manager
