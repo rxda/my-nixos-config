@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+
+  home.packages  = [
+    pkgs.nixd
+    pkgs.nixpkgs-fmt
+  ];
+
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
@@ -10,6 +16,30 @@
       "files.autoSave" = "afterDelay";
       # 设置自动保存延迟（毫秒），1000 毫秒即 1 秒
       "files.autoSaveDelay" = 1000;
+
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd";
+
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = [ "nixpkgs-fmt" ];
+          };
+          "options" = {
+            # 这里的配置是 nixd 的灵魂，它能让你在写 Nix 选项时获得补全
+            # 它可以关联你的 nixpkgs 路径
+            "nixpkgs" = {
+              "expr" = "import <nixpkgs> { }";
+            };
+          };
+        };
+      };
+
+      # 开启保存自动格式化
+      "[nix]" = {
+        "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        "editor.formatOnSave" = true;
+      };
     };
     
     # 注意：这一大坨扩展列表
@@ -93,6 +123,8 @@
       vscode-marketplace.ziglang.vscode-zig
       vscode-marketplace.github.github-vscode-theme
       vscode-marketplace.quicktype.quicktype
+      vscode-marketplace.biomejs.biome
+      vscode-marketplace.bradlc.vscode-tailwindcss
       vscode-extensions.vadimcn.vscode-lldb
     ];
   };
