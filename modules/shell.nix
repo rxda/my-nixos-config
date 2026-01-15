@@ -42,4 +42,17 @@
     nix-direnv.enable = true;
     enableZshIntegration = true;
   };
+
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    # 自动同步
+    flags = [ "--disable-up-arrow" ]; # 如果你不想接管上方向键
+    settings = {
+      auto_sync = true;
+      sync_frequency = "5m"; # 每 5 分钟同步一次
+      sync_address = "https://api.atuin.sh"; # 官方服务器
+      search_mode = "fuzzy";
+    };
+  };
 }
