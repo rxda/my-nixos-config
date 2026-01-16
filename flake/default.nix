@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ inputs, ... }: {
 
   # 定义 nixosConfigurations
   flake.nixosConfigurations = {

@@ -1,4 +1,4 @@
-{ config, pkgs, agenix, ... }:
+{ agenix, ... }:
 
 {
   environment.systemPackages = [
