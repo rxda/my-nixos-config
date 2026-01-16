@@ -2,7 +2,7 @@
 
   # 定义 nixosConfigurations
   flake.nixosConfigurations = {
-    
+
     xiaomi-notebook = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -17,6 +17,7 @@
         ../system/services.nix
         ../system/variables.nix
         ../system/singbox.nix
+        ../system/packages.nix
         ../system/fcitx5-rime.nix
       ];
     };
@@ -33,6 +34,7 @@
         ../system/services.nix
         ../system/variables.nix
         ../system/singbox.nix
+        ../system/packages.nix
         ../system/disable-hibernate.nix
         ../system/fcitx5-rime.nix
       ];
