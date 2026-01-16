@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   # Starship 提示符
@@ -35,7 +35,7 @@
     };
     history.size = 1000000;
   };
-  
+
   # 既然启用了 direnv，顺便在这里集成
   programs.direnv = {
     enable = true;
@@ -53,6 +53,14 @@
       sync_frequency = "5m"; # 每 5 分钟同步一次
       sync_address = "https://api.atuin.sh"; # 官方服务器
       search_mode = "fuzzy";
+      history_filter = [
+        "^ls" # 过滤以 ls 开头的命令（包括 ls -la 等）
+        "^cd" # 过滤以 cd 开头的命令
+        "^pwd$" # 仅过滤完全匹配 pwd 的命令
+        "^exit$" # 过滤退出命令
+        "^clear$" # 过滤清屏
+        "^history" # 过滤查看历史的命令
+      ];
     };
   };
 }
