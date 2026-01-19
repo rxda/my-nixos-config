@@ -70,4 +70,10 @@
   networking.firewall.allowedTCPPorts = [ 8443 ];
   users.users.rxda.extraGroups = [ "incus-admin" ];
   networking.firewall.trustedInterfaces = [ "incusbr0" ];
+
+  # waydroid 
+  virtualisation.waydroid = {
+    enable = true;
+    package = pkgs.waydroid-nftables;
+  };
 }
