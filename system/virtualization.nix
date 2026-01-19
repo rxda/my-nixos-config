@@ -32,6 +32,8 @@
 
   # 3. 安装相关工具
   environment.systemPackages = with pkgs; [
+    # waydroid x86转义arm
+    waydroid-helper
     podman-compose # Podman 官方的 Compose 实现
   ];
 
