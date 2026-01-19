@@ -13,11 +13,13 @@
   # --- Libvirt (KVM/QEMU) ---
   virtualisation.libvirtd = {
     enable = true;
+    onShutdown = "suspend"; # 宿主机关闭时，虚拟机进入 Managed Save 状态
+    onBoot = "ignore"; # 宿主机启动时，不自动开启虚拟机
     qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
   };
   programs.virt-manager.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-  
+
   # 确保用户组在 configuration.nix 里已经加了 libvirtd
   # --- Incus ---
   virtualisation.incus = {
@@ -66,6 +68,6 @@
   networking.nftables.enable = true;
   # 开放防火墙端口，允许局域网访问 Incus API/UI
   networking.firewall.allowedTCPPorts = [ 8443 ];
-  users.users.rxda.extraGroups = ["incus-admin"];
+  users.users.rxda.extraGroups = [ "incus-admin" ];
   networking.firewall.trustedInterfaces = [ "incusbr0" ];
 }
