@@ -1,5 +1,5 @@
 # modules/gateway.nix
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 let
   # === 在这里集中管理你的网络变量 ===

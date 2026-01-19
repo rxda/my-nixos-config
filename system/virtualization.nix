@@ -1,14 +1,39 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # --- Docker ---
-  virtualisation.docker = {
+  # virtualisation.docker = {
+  #   enable = true;
+  #   rootless = {
+  #     enable = true;
+  #     setSocketVariable = true;
+  #   };
+  # };
+
+  # podman
+  # 1. 开启 Podman
+  virtualisation.podman = {
     enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+
+    # 创建 docker 别名，让你直接运行 docker ps, docker run 等
+    dockerCompat = true;
+
+    # 开启 Docker 兼容 Socket
+    # 这让普通的 docker-compose 和其它依赖 Docker 服务的工具能直接使用 Podman
+    dockerSocket.enable = true;
+
+    # 启用容器间 DNS 解析（Compose 必须，否则容器间无法通过名称访问）
+    defaultNetwork.settings.dns_enabled = true;
   };
+
+  # 2. 解决“镜像源选择”问题 (Registries)
+  # 明确告诉 Podman 默认搜索 docker.io，这样拉取 alpine 时就不会再跳出菜单让你选了
+  virtualisation.containers.registries.search = [ "docker.io" ];
+
+  # 3. 安装相关工具
+  environment.systemPackages = with pkgs; [
+    podman-compose # Podman 官方的 Compose 实现
+  ];
 
   # --- Libvirt (KVM/QEMU) ---
   virtualisation.libvirtd = {
