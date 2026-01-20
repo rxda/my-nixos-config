@@ -5,8 +5,8 @@
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  
-  
+
+
   # GNOME Keyring (密码环)
   services.gnome.gnome-keyring.enable = true;
   services.gnome.core-apps.enable = true;
@@ -44,15 +44,24 @@
       jetbrains-mono
       wqy_microhei
       wqy_zenhei
-      nerd-fonts.fira-code 
+      nerd-fonts.fira-code
+
+      vista-fonts-chs # 包含微软雅黑 (Microsoft YaHei)
+      vista-fonts # 包含 Calibri, Cambria 等
+      vista-fonts-cht # 繁中 
     ];
 
     fontconfig = {
       enable = true;
       defaultFonts = {
+        sansSerif = [ "Noto Sans CJK SC" "DejaVu Sans" "Microsoft YaHei" ];
+        serif = [ "Noto Serif CJK SC" "DejaVu Serif" "SimSun" ];
         monospace = [ "FiraCode Nerd Font Mono" "Noto Sans Mono CJK SC" ];
         emoji = [ "Noto Color Emoji" ];
       };
+      antialias = true;
+      hinting.enable = true;
+      subpixel.lcdfilter = "default";
     };
   };
 
