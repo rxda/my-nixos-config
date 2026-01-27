@@ -108,11 +108,11 @@
     },
     "my-templates": {
       "locked": {
-        "lastModified": 1768355259,
-        "narHash": "sha256-xITuJnFeoAjqzOpiRMQZHjZmGkT7+CcsE+IE+UCPR0w=",
+        "lastModified": 1769477744,
+        "narHash": "sha256-/gAY0pHmG15MIrFYoH2oUNkTqIk3an8imfXiIAyaqfg=",
         "owner": "rxda",
         "repo": "my-nix-templates",
-        "rev": "9d7127363e91c7d7aac48c51dcfab93d5327c854",
+        "rev": "9386cb7a2f5c060884a5f9619c2d03573d60722b",
         "type": "github"
       },
       "original": {
