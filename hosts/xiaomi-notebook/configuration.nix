@@ -1,45 +1,29 @@
-{ config, pkgs, inputs, ... }:
+{ config, ... }:
 
 {
+  # --- hostname ---
+  networking.hostName = "xiaomi-notebook";
 
-  # --- 引导与内核 ---
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # OpenGL
+  hardware.graphics.enable = true;
 
-  # --- 网络标识 ---
-  networking.hostName = "xiaomi-notebook"; 
-  networking.networkmanager.enable = true;
+  # 加载驱动
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-  # --- 时区与语言 ---
-  time.timeZone = "Asia/Shanghai";
-  i18n.defaultLocale = "zh_CN.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "zh_CN.UTF-8";
-    LC_IDENTIFICATION = "zh_CN.UTF-8";
-    LC_MEASUREMENT = "zh_CN.UTF-8";
-    LC_MONETARY = "zh_CN.UTF-8";
-    LC_NAME = "zh_CN.UTF-8";
-    LC_NUMERIC = "zh_CN.UTF-8";
-    LC_PAPER = "zh_CN.UTF-8";
-    LC_TELEPHONE = "zh_CN.UTF-8";
-    LC_TIME = "zh_CN.UTF-8";
+  hardware.nvidia = {
+    prime = {
+      sync.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # --- 用户配置 ---
-  users.users.rxda = {
-    isNormalUser = true;
-    description = "rxda";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
-  };
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
-  # --- Nix 核心设置 ---
-  nixpkgs.config.allowUnfree = true;
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" "@wheel" ];
-  };
   # 系统版本 (千万别删)
-  system.stateVersion = "24.11"; 
+  system.stateVersion = "24.11";
 }

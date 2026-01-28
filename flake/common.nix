@@ -1,5 +1,5 @@
 # flake/common.nix
-{ inputs, ... }: {
+{ inputs, pkgs, ... }: {
   # 这个文件会被所有主机导入
   imports = [
     # 1. 引入 Agenix 和 VSCode Server
@@ -12,7 +12,7 @@
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = "backup";
-      home-manager.extraSpecialArgs = { inherit inputs; }; 
+      home-manager.extraSpecialArgs = { inherit inputs; };
 
       home-manager.users.rxda = {
         imports = [
@@ -20,8 +20,56 @@
         ];
       };
     }
+
+    ../system/desktop.nix
+    ../system/virtualization.nix
+    ../system/services.nix
+    ../system/variables.nix
+    ../system/singbox.nix
+    ../system/packages.nix
+    ../system/fcitx5-rime.nix
+
   ];
 
   # 3. 引入 VSCode 扩展的 overlay
   nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+
+  # --- 时区与语言 ---
+  time.timeZone = "Asia/Shanghai";
+  i18n.defaultLocale = "zh_CN.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "zh_CN.UTF-8";
+    LC_IDENTIFICATION = "zh_CN.UTF-8";
+    LC_MEASUREMENT = "zh_CN.UTF-8";
+    LC_MONETARY = "zh_CN.UTF-8";
+    LC_NAME = "zh_CN.UTF-8";
+    LC_NUMERIC = "zh_CN.UTF-8";
+    LC_PAPER = "zh_CN.UTF-8";
+    LC_TELEPHONE = "zh_CN.UTF-8";
+    LC_TIME = "zh_CN.UTF-8";
+  };
+
+  # --- 用户配置 ---
+  users.users.rxda = {
+    isNormalUser = true;
+    description = "rxda";
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+  };
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
+  # --- Nix 核心设置 ---
+  nixpkgs.config.allowUnfree = true;
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    auto-optimise-store = true;
+    trusted-users = [ "root" "@wheel" ];
+  };
+
+  # --- 引导与内核 ---
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # --- 网络 ---
+  networking.networkmanager.enable = true;
 }

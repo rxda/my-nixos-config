@@ -1,5 +1,5 @@
 # /etc/nixos/niri.nix
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # 1. 启用 Niri

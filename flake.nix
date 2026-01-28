@@ -31,7 +31,7 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
-    
+
     fenix = {
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +50,7 @@
   # outputs 不再需要手写参数
   outputs = inputs@{ self, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit self inputs; } {
-      
+
       # 定义支持的系统架构
       systems = [ "x86_64-linux" ];
 

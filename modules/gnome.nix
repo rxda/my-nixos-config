@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -26,21 +26,21 @@
 
   home.packages = with pkgs.gnomeExtensions; [
     # 举例：常用的几个扩展
-    appindicator          # 托盘图标支持 (AppIndicator and KStatusNotifierItem Support)
-    dash-to-dock          # 把底栏变成 Dock
-    blur-my-shell         # 让界面有毛玻璃效果
-    clipboard-indicator   # 剪贴板历史
+    appindicator # 托盘图标支持 (AppIndicator and KStatusNotifierItem Support)
+    dash-to-dock # 把底栏变成 Dock
+    blur-my-shell # 让界面有毛玻璃效果
+    clipboard-indicator # 剪贴板历史
     pip-on-top
-    user-themes         # 如果你想换 Shell 主题，需要这个
+    user-themes # 如果你想换 Shell 主题，需要这个
   ];
 
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" = {
       # 禁用“切换应用程序” (原本的 Alt+Tab)
-      switch-applications = [];
+      switch-applications = [ ];
       # 禁用“反向切换应用程序” (原本的 Alt+Shift+Tab)
-      switch-applications-backward = [];
-      
+      switch-applications-backward = [ ];
+
       # 将 Alt+Tab 绑定到“切换窗口”
       switch-windows = [ "<Alt>Tab" ];
       # 将 Alt+Shift+Tab 绑定到“反向切换窗口”
@@ -48,7 +48,7 @@
     };
     "org/gnome/shell" = {
       disable-user-extensions = false; # 确保没被全局禁用
-      
+
       enabled-extensions = with pkgs.gnomeExtensions; [
         # --- 第三方热门插件 (使用 pkgs.gnomeExtensions) ---
         dash-to-dock.extensionUuid

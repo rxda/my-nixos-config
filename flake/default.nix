@@ -11,14 +11,6 @@
         ./common.nix
         ../hosts/xiaomi-notebook/configuration.nix
         ../hosts/xiaomi-notebook/hardware-configuration.nix
-        ../system/nvidia.nix
-        ../system/desktop.nix
-        ../system/virtualization.nix
-        ../system/services.nix
-        ../system/variables.nix
-        ../system/singbox.nix
-        ../system/packages.nix
-        ../system/fcitx5-rime.nix
       ];
     };
 
@@ -29,14 +21,7 @@
         ./common.nix
         ../hosts/link-eq12/configuration.nix
         ../hosts/link-eq12/hardware-configuration.nix
-        ../system/desktop.nix
-        ../system/virtualization.nix
-        ../system/services.nix
-        ../system/variables.nix
-        ../system/singbox.nix
-        ../system/packages.nix
         ../system/disable-hibernate.nix
-        ../system/fcitx5-rime.nix
       ];
     };
   };
