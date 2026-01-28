@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # --- 系统级通用软件 ---
@@ -7,14 +7,14 @@
     vim
     wget
     jq
-    
+
     # 截图与 Wayland 工具 (如果你用 Niri 这里的很有用，GNOME 其实自带了)
-    grim 
-    slurp 
-    wl-clipboard 
-    mako 
+    grim
+    slurp
+    wl-clipboard
+    mako
     inetutils
-    
+
     # GNOME 插件
     gnome-shell-extensions
   ];

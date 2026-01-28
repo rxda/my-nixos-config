@@ -17,7 +17,7 @@
         rime-ice
         # 必要的界面库（解决 GTK/Qt 程序的输入问题）
         fcitx5-gtk
-        libsForQt5.fcitx5-qt  # 针对 Qt5 程序（WPS 主要用这个）
+        libsForQt5.fcitx5-qt # 针对 Qt5 程序（WPS 主要用这个）
         kdePackages.fcitx5-qt # 针对 Qt6 程序
       ];
     };

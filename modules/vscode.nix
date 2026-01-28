@@ -2,7 +2,7 @@
 
 {
 
-  home.packages  = [
+  home.packages = [
     pkgs.nixd
     pkgs.nixpkgs-fmt
   ];
@@ -41,7 +41,7 @@
         "editor.formatOnSave" = true;
       };
     };
-    
+
     # 注意：这一大坨扩展列表
     profiles.default.extensions = with pkgs; [
       vscode-marketplace.akamud.vscode-theme-onedark

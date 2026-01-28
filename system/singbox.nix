@@ -16,19 +16,19 @@
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
-    
+
     serviceConfig = {
       # 指定配置文件路径 (这个路径是可写的)
       ExecStart = "${pkgs.sing-box}/bin/sing-box run -c /var/lib/sing-box/config.json";
       Restart = "always";
-      
+
       # 创建状态目录 /var/lib/sing-box
       StateDirectory = "sing-box";
       WorkingDirectory = "/var/lib/sing-box";
 
       # --- 权限设置 (TUN 模式必备) ---
       # 如果你用 Tun 模式，通常需要 root 或 NET_ADMIN 权限
-      User = "root"; 
+      User = "root";
       # 如果你很在意安全，想用非 root 用户，必须开启以下 Capability：
       # User = "sing-box";
       # DynamicUser = true;
@@ -85,7 +85,7 @@
       # 开机后 5 分钟也尝试更新一次
       OnBootSec = "5m";
       # 如果关机错过了时间，开机立即补跑
-      Persistent = true; 
+      Persistent = true;
     };
   };
 
