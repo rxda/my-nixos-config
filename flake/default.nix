@@ -1,11 +1,11 @@
-{ inputs, ... }: {
+{ inputs, self, ... }: {
 
   # 定义 nixosConfigurations
   flake.nixosConfigurations = {
 
     xiaomi-notebook = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs self; };
       # 模块列表变得极其干净
       modules = [
         ./common.nix
@@ -16,7 +16,7 @@
 
     link-eq12 = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs self; };
       modules = [
         ./common.nix
         ../hosts/link-eq12/configuration.nix

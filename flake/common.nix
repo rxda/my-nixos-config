@@ -1,5 +1,5 @@
 # flake/common.nix
-{ inputs, pkgs, ... }: {
+{ self, inputs, pkgs, ... }: {
   # 这个文件会被所有主机导入
   imports = [
     # 1. 引入 Agenix 和 VSCode Server
@@ -28,6 +28,7 @@
     ../system/singbox.nix
     ../system/packages.nix
     ../system/fcitx5-rime.nix
+    ../system/config.nix
 
   ];
 
