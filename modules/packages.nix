@@ -31,7 +31,6 @@
     # 网络与代理 (科学上网)
     # ============================================================
     clash-meta # Clash 的 Meta 内核 (支持更多协议)
-    sing-box # 新一代通用代理平台 (内核)
     gui-for-singbox # Sing-box 的图形界面
     openvpn # 传统的 VPN 客户端
     easytier # 简单的 P2P 组网工具 (类似 ZeroTier)

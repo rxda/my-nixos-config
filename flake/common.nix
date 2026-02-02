@@ -62,9 +62,19 @@
   # --- Nix 核心设置 ---
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
+    substituters = [
+      "https://rxda-cache.cachix.org"
+      "https://cache.nixos.org" # 官方源
+    ];
+
+    # 2. 添加信任公钥
+    trusted-public-keys = [
+      "rxda-cache.cachix.org-1:LDGrYaB+dF7wh+uWMLjh5VsckzFnnCyGkMH1sKHN++g="
+    ];
+
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
-    trusted-users = [ "root" "@wheel" ];
+    trusted-users = [ "root" "@wheel" "rxda" ];
   };
 
   # --- 引导与内核 ---

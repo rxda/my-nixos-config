@@ -1,14 +1,21 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
+let
+  # 这里的 pkgs.system 会自动匹配当前机器架构 (x86_64-linux)
+  # 直接拿到你那个仓库输出的 default 包
+  sing-box-latest = inputs.sing-box-unstable.packages.${pkgs.system}.default;
+in
 {
+
+
+  # 1. 确保安装 sing-box
+  environment.systemPackages = [ sing-box-latest ];
+
   age.secrets.singbox-url = {
     file = ../secrets/singbox-url.age;
     owner = "root"; # 因为是 systemd (root) 要读它
     mode = "400";
   };
-
-  # 1. 确保安装 sing-box
-  environment.systemPackages = [ pkgs.sing-box ];
 
   # 2. 定义 sing-box 主服务
   systemd.services.sing-box = {
@@ -19,7 +26,7 @@
 
     serviceConfig = {
       # 指定配置文件路径 (这个路径是可写的)
-      ExecStart = "${pkgs.sing-box}/bin/sing-box run -c /var/lib/sing-box/config.json";
+      ExecStart = "${sing-box-latest}/bin/sing-box run -c /var/lib/sing-box/config.json";
       Restart = "always";
 
       # 创建状态目录 /var/lib/sing-box
@@ -63,7 +70,7 @@
       # 如果直接覆盖，sing-box 就会挂掉。
       # 所以必须先用 sing-box check 检查一遍语法。
       
-      if ${pkgs.sing-box}/bin/sing-box check -c "$TEMP"; then
+      if ${sing-box-latest}/bin/sing-box check -c "$TEMP"; then
         echo "Configuration check passed. Restarting service..."
         mv "$TEMP" "$TARGET"
         ${pkgs.systemd}/bin/systemctl restart sing-box

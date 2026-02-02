@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 INTERFACE="wlp4s0"      # 你的网卡名
-DOWNLOAD="4mbit"     # 下载限制
+DOWNLOAD="5mbit"     # 下载限制
 UPLOAD="3mbit"       # 上传限制
 
 # 1. 加载 IFB 模块

@@ -45,6 +45,11 @@
     my-templates = {
       url = "github:rxda/my-nix-templates";
     };
+
+    sing-box-unstable = {
+      url = "github:rxda/sing-box-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # outputs 不再需要手写参数
