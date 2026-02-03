@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   # 引入拆分后的模块
@@ -9,6 +9,7 @@
     ./packages.nix
     ./template.nix
     ./gnome.nix
+    inputs.stylix.homeManagerModules.stylix
   ];
 
   # 用户基础信息

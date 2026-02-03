@@ -2,6 +2,11 @@
 
 {
 
+  stylix = {
+    enable = true;
+    image = ../assets/fox.jpg; # 核心：指定这张图，全系统都会变
+  };
+
   gtk = {
     enable = true;
 
@@ -18,10 +23,10 @@
     };
 
     # 3. 设置界面 GTK 主题 (可选)
-    theme = {
-      name = "Adwaita";
-      package = pkgs.gnome-themes-extra;
-    };
+    # theme = {
+    #   name = "Adwaita";
+    #   package = pkgs.gnome-themes-extra;
+    # };
   };
 
   home.packages = with pkgs.gnomeExtensions; [

@@ -50,6 +50,11 @@
       url = "github:rxda/sing-box-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # outputs 不再需要手写参数
