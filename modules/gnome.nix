@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   # 1. 定义壁纸在 Nix Store 中的路径
-  # Nix 会自动把这个本地文件拷贝到 /nix/store
-  wallpaperFile = ../assets/fox.jpg;
+  wallpaperFile = pkgs.fetchurl {
+    url = "https://140100000.xyz/wallpaper/fox.jpg"; # 或者 user-images 的地址
+    sha256 = "sha256-7agK/PfIivK1zq7kVozI4llVO22xqned1rOzFsqHAdk=";
+  };
 in
 {
 
@@ -42,14 +44,14 @@ in
   dconf.settings = {
     "org/gnome/desktop/background" = {
       # GNOME 要求路径必须以 file:// 开头
-      picture-uri = "file://${wallpaperFile}";
-      picture-uri-dark = "file://${wallpaperFile}"; # 也要设置暗色模式下的壁纸
+      picture-uri = lib.mkForce "file://${wallpaperFile}";
+      picture-uri-dark = lib.mkForce "file://${wallpaperFile}"; # 也要设置暗色模式下的壁纸
       picture-options = "zoom"; # 填充模式
     };
 
     # 顺便设置锁屏壁纸
     "org/gnome/desktop/screensaver" = {
-      picture-uri = "file://${wallpaperFile}";
+      picture-uri = lib.mkForce "file://${wallpaperFile}";
     };
 
     "org/gnome/desktop/wm/keybindings" = {
