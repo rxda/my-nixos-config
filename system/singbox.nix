@@ -3,7 +3,7 @@
 let
   # 这里的 pkgs.system 会自动匹配当前机器架构 (x86_64-linux)
   # 直接拿到你那个仓库输出的 default 包
-  sing-box-latest = inputs.sing-box-unstable.packages.${pkgs.system}.default;
+  sing-box-latest = inputs.sing-box-unstable.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
 

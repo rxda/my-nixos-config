@@ -9,7 +9,6 @@
     ./packages.nix
     ./template.nix
     ./gnome.nix
-    inputs.stylix.homeManagerModules.stylix
   ];
 
   # 用户基础信息

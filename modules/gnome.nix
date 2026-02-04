@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
+let
+  # 1. 定义壁纸在 Nix Store 中的路径
+  # Nix 会自动把这个本地文件拷贝到 /nix/store
+  wallpaperFile = ../assets/fox.jpg;
+in
 {
-
-  stylix = {
-    enable = true;
-    image = ../assets/fox.jpg; # 核心：指定这张图，全系统都会变
-  };
 
   gtk = {
     enable = true;
@@ -23,10 +23,10 @@
     };
 
     # 3. 设置界面 GTK 主题 (可选)
-    # theme = {
-    #   name = "Adwaita";
-    #   package = pkgs.gnome-themes-extra;
-    # };
+    theme = {
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
+    };
   };
 
   home.packages = with pkgs.gnomeExtensions; [
@@ -40,6 +40,18 @@
   ];
 
   dconf.settings = {
+    "org/gnome/desktop/background" = {
+      # GNOME 要求路径必须以 file:// 开头
+      picture-uri = "file://${wallpaperFile}";
+      picture-uri-dark = "file://${wallpaperFile}"; # 也要设置暗色模式下的壁纸
+      picture-options = "zoom"; # 填充模式
+    };
+
+    # 顺便设置锁屏壁纸
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = "file://${wallpaperFile}";
+    };
+
     "org/gnome/desktop/wm/keybindings" = {
       # 禁用“切换应用程序” (原本的 Alt+Tab)
       switch-applications = [ ];
