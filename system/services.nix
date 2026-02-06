@@ -12,7 +12,15 @@
   programs.nix-ld.enable = true;
 
   # --- Tailscale ---
-  # services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+    extraSetFlags = [
+      "--accept-routes"
+      "--advertise-routes=192.168.10.0/24,192.168.32.0/24"
+      "--accept-dns=true"
+    ];
+  };
   # --- ssh ---
   services.openssh.enable = true;
   # --- Steam ---
@@ -45,7 +53,6 @@
   # --- 防火墙 ---
   networking.firewall = {
     enable = true;
-    checkReversePath = false;
     trustedInterfaces = [ "wlp4s0" "virbr0" "docker0" "tun0" "tailscale0" ];
     # Samba wsdd 需要的端口
     allowedTCPPorts = [ 5357 ];
