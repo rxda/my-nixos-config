@@ -50,6 +50,11 @@
       url = "github:rxda/sing-box-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # outputs 不再需要手写参数

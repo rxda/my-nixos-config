@@ -22,6 +22,8 @@
         ../hosts/link-eq12/configuration.nix
         ../hosts/link-eq12/hardware-configuration.nix
         ../system/disable-hibernate.nix
+        # inputs.disko.nixosModules.disko
+        # ../hosts/link-eq12/disko.nix
       ];
     };
   };
