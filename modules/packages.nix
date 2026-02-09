@@ -37,6 +37,8 @@
     yt-dlp # youtube下载器
     ffmpeg_7 # ffmpeg
     vlc # vlc播放器
+    motrix
+    qbittorrent
 
     # --- 网络分析与下载 ---
     aria2 # 强大的命令行下载工具
