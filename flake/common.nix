@@ -56,6 +56,13 @@
     isNormalUser = true;
     description = "rxda";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    openssh.authorizedKeys.keys = [
+      # eq12
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEmmnspv3TeLPEMHS99R+cLfSVeEerXR9RQE2E9XGzh"
+
+      # xiaomi
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOaFc3auZJZIvznu+0/s25njbAlvLhAjKC8iUj3mexxP"
+    ];
   };
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
