@@ -23,14 +23,6 @@
   };
   # --- ssh ---
   services.openssh.enable = true;
-  programs.ssh.knownHosts = {
-    "link-eq12" = {
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEmmnspv3TeLPEMHS99R+cLfSVeEerXR9RQE2E9XGzh";
-    };
-    "xiaomi-notebook" = {
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOaFc3auZJZIvznu+0/s25njbAlvLhAjKC8iUj3mexxP";
-    };
-  };
 
   # --- Steam ---
   programs.steam = {
