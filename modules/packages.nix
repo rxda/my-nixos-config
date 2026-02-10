@@ -37,8 +37,6 @@
     yt-dlp # youtube下载器
     ffmpeg_7 # ffmpeg
     vlc # vlc播放器
-    motrix
-    qbittorrent
 
     # --- 网络分析与下载 ---
     aria2 # 强大的命令行下载工具
@@ -90,6 +88,7 @@
     wpsoffice-cn # WPS Office (国产办公套件)
     telegram-desktop # Telegram 桌面端
     wechat-uos # 微信 (基于 UOS 版本的 Linux 客户端)
+    waypipe
 
     # ============================================================
     # 娱乐与游戏
