@@ -5,7 +5,7 @@
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    enableSSHSupport = true;
+    enableSSHSupport = false;
   };
 
   # 二进制兼容 
