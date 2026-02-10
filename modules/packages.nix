@@ -89,6 +89,7 @@
     telegram-desktop # Telegram 桌面端
     wechat-uos # 微信 (基于 UOS 版本的 Linux 客户端)
     waypipe
+    anydesk
 
     # ============================================================
     # 娱乐与游戏
