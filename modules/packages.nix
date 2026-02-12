@@ -30,10 +30,9 @@
     # ============================================================
     # 网络与代理 (科学上网)
     # ============================================================
-    clash-meta # Clash 的 Meta 内核 (支持更多协议)
-    gui-for-singbox # Sing-box 的图形界面
+    # clash-meta # Clash 的 Meta 内核 (支持更多协议)
+    # gui-for-singbox # Sing-box 的图形界面
     openvpn # 传统的 VPN 客户端
-    easytier # 简单的 P2P 组网工具 (类似 ZeroTier)
     yt-dlp # youtube下载器
     ffmpeg_7 # ffmpeg
     vlc # vlc播放器
@@ -42,7 +41,6 @@
     aria2 # 强大的命令行下载工具
     wireshark # 网络抓包分析神器
     fiddler-everywhere # HTTP/HTTPS 抓包调试代理
-    baidupcs-go # 百度网盘的第三方 Go 语言客户端
     gnugrep # GNU 版本的 grep (搜索文本)
     filezilla # FTP客户端
     jmtpfs # FUSE filesystem for MTP devices like Android phones
@@ -64,6 +62,7 @@
     pnpm_10 # 快速的 Node 包管理器
     pkg-configUpstream # rust-analyzer依赖
     lldb # rust调试
+
     # --- 开发工具 ---
     git # 版本控制 (虽然有 programs.git，这里装一下防身)
     postman # API 接口测试工具
@@ -77,7 +76,6 @@
     jetbrains.idea # IntelliJ IDEA 旗舰版 (Java IDE)
     jetbrains.datagrip # DataGrip (数据库管理 IDE)
     yazi # 极速终端文件管理器 (用 Rust 写的)
-    alacritty-graphics # 可能是指支持图形协议的 Alacritty 版本
     ghostty # 终端
 
     # ============================================================
@@ -89,16 +87,12 @@
     telegram-desktop # Telegram 桌面端
     wechat-uos # 微信 (基于 UOS 版本的 Linux 客户端)
     waypipe
-    anydesk
 
     # ============================================================
     # 娱乐与游戏
     # ============================================================
     spotify # 听歌
-    netease-cloud-music-gtk # 网易云音乐 (GTK 版本，非官方)
     chiaki-ng # PS4/PS5 远程串流客户端
-    prismlauncher # 最好用的 Minecraft 启动器
-    protonplus # 管理 Steam Proton/Wine 版本的工具 (游戏兼容层)
 
     # ============================================================
     # 虚拟化

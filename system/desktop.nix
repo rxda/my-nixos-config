@@ -75,7 +75,7 @@
   };
 
   # Open the default RDP port (3389)
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [ 3389 8080 ];
 
   # Disable autologin to avoid session conflicts
   services.displayManager.autoLogin.enable = false;
