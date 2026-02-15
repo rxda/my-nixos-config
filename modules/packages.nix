@@ -62,6 +62,8 @@
     pnpm_10 # 快速的 Node 包管理器
     pkg-configUpstream # rust-analyzer依赖
     lldb # rust调试
+    python314
+    
 
     # --- 开发工具 ---
     git # 版本控制 (虽然有 programs.git，这里装一下防身)
