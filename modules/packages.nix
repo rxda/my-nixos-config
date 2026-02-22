@@ -39,8 +39,6 @@
 
     # --- 网络分析与下载 ---
     aria2 # 强大的命令行下载工具
-    wireshark # 网络抓包分析神器
-    fiddler-everywhere # HTTP/HTTPS 抓包调试代理
     gnugrep # GNU 版本的 grep (搜索文本)
     filezilla # FTP客户端
     jmtpfs # FUSE filesystem for MTP devices like Android phones
@@ -55,15 +53,11 @@
     statix # 自动修复过时配置
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     # --- 编程语言与编译器 ---
-    go # Go 语言环境
-    jdk8 # Java 8 开发包 (为了兼容旧项目?)
-    maven # Java 项目构建工具
-    nodejs_24 # Node.js 24
-    pnpm_10 # 快速的 Node 包管理器
+    jdk25_headless
     pkg-configUpstream # rust-analyzer依赖
     lldb # rust调试
     python314
-    
+
 
     # --- 开发工具 ---
     git # 版本控制 (虽然有 programs.git，这里装一下防身)

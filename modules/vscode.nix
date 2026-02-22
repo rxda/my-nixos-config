@@ -93,11 +93,8 @@
       vscode-marketplace.naco-siren.gradle-language
       vscode-marketplace.quicktype.quicktype
       vscode-marketplace.randomfractalsinc.geo-data-viewer
-      vscode-marketplace.redhat.java
       vscode-marketplace.redhat.vscode-xml
       vscode-marketplace.rust-lang.rust-analyzer
-      vscode-marketplace.scala-lang.scala
-      vscode-marketplace.scalameta.metals
       vscode-marketplace.shakram02.bash-beautify
       vscode-marketplace.tabbyml.vscode-tabby
       vscode-marketplace.tamasfe.even-better-toml
@@ -105,14 +102,6 @@
       vscode-marketplace.twxs.cmake
       # vscode-marketplace-universal.vadimcn.vscode-lldb
       vscode-marketplace.vmware.vscode-spring-boot
-      vscode-marketplace.vscjava.vscode-gradle
-      vscode-marketplace.vscjava.vscode-java-debug
-      vscode-marketplace.vscjava.vscode-java-dependency
-      vscode-marketplace.vscjava.vscode-java-pack
-      vscode-marketplace.vscjava.vscode-java-test
-      vscode-marketplace.vscjava.vscode-lombok
-      vscode-marketplace.vscjava.vscode-maven
-      vscode-marketplace.vscjava.vscode-spring-boot-dashboard
       vscode-marketplace.vscode-icons-team.vscode-icons
       vscode-marketplace.vstirbu.vscode-mermaid-preview
       vscode-marketplace.vue.volar

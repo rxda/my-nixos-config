@@ -1,0 +1,69 @@
+name: "Warm NVIDIA Cache (Manual/Schedule)"
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # 每 6 小时检查一次
+  workflow_dispatch:      # 允许手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  warm-nvidia:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v25
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: Get Latest Nixpkgs Commit
+      id: get_rev
+      run: |
+        # 获取 nixos-unstable 分支最新的 commit hash
+        REV=$(curl -s https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable | jq -r '.commit.sha')
+        echo "latest_rev=$REV" >> $GITHUB_OUTPUT
+        
+        # 读取上次构建成功的 hash (如果文件不存在则为空)
+        OLD_REV=$(cat last-built-nixpkgs.txt 2>/dev/null || echo "")
+        echo "old_rev=$OLD_REV" >> $GITHUB_OUTPUT
+
+    - name: Setup Cachix
+      # 只有当 hash 变动时才需要后续步骤
+      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev
+      uses: cachix/cachix-action@v14
+      with:
+        name: rxda-cache # 【替换】你的 Cachix 名字
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+    - name: Build Driver with Latest Nixpkgs
+      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev
+      env:
+        NIXPKGS_ALLOW_UNFREE: 1
+      run: |
+        HOSTNAME="xiaomi-notebook" # 【替换】你的机器名
+        LATEST_REV="${{ steps.get_rev.outputs.latest_rev }}"
+        
+        echo "检测到新版本: $LATEST_REV，开始预热缓存..."
+        
+        # 使用 --override-input 强制指定 nixpkgs 到最新 commit
+        nix build .#nixosConfigurations."$HOSTNAME".config.boot.kernelPackages.kernel \
+                  .#nixosConfigurations."$HOSTNAME".config.boot.kernelPackages.nvidia_x11 \
+          --override-input nixpkgs "github:NixOS/nixpkgs/$LATEST_REV" \
+          --accept-flake-config \
+          --print-build-logs
+
+    - name: Update Version File
+      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev && success()
+      run: |
+        echo "${{ steps.get_rev.outputs.latest_rev }}" > last-built-nixpkgs.txt
+
+    - name: Commit and Push
+      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev && success()
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore: update cached nixpkgs version to ${{ steps.get_rev.outputs.latest_rev }}"
+        file_pattern: 'last-built-nixpkgs.txt'
