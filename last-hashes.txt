@@ -1,0 +1,1 @@
+/nix/store/0czan94ykrdwrvn0zy8a3c62k8wc93m2-linux-6.18.12|/nix/store/2xwla4z2ajf3cd3cy3bjv84m38n8bp7c-nvidia-x11-580.126.09-6.18.12
