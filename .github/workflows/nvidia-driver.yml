@@ -1,70 +1,86 @@
-name: "Warm NVIDIA Cache (Manual/Schedule)"
+name: "Smart NVIDIA Cache Warmer"
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # 每 6 小时检查一次
+    - cron: '0 */6 * * *' # 每 6 小时运行一次
   workflow_dispatch:      # 允许手动触发
 
 permissions:
   contents: write
 
 jobs:
-  warm-nvidia:
+  check-and-build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Get Latest Nixpkgs Commit
-      id: get_rev
-      run: |
-        # 获取 nixos-unstable 分支最新的 commit hash
-        REV=$(curl -s https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable | jq -r '.commit.sha')
-        echo "latest_rev=$REV" >> $GITHUB_OUTPUT
-        
-        # 读取上次构建成功的 hash (如果文件不存在则为空)
-        OLD_REV=$(cat last-built-nixpkgs.txt 2>/dev/null || echo "")
-        echo "old_rev=$OLD_REV" >> $GITHUB_OUTPUT
-
     - name: Install Nix
-      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev
       uses: cachix/install-nix-action@v25
       with:
         nix_path: nixpkgs=channel:nixos-unstable
 
+    - name: Calculate Future Hashes
+      id: calc_hash
+      run: |
+        # 1. 获取 nixos-unstable 最新 commit
+        LATEST_REV=$(curl -s https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable | jq -r '.commit.sha')
+        echo "latest_rev=$LATEST_REV" >> $GITHUB_OUTPUT
+        
+        HOSTNAME="xiaomi-notebook" # 【替换】你的机器名
+        
+        # 2. 计算基于新 commit 的内核和驱动的 Store Path (只计算，不下载，不构建)
+        # toString 确保输出的是字符串路径
+        NEW_KERNEL_HASH=$(nix eval --raw .#nixosConfigurations."$HOSTNAME".config.boot.kernelPackages.kernel.outPath --override-input nixpkgs "github:NixOS/nixpkgs/$LATEST_REV" --accept-flake-config)
+        NEW_NVIDIA_HASH=$(nix eval --raw .#nixosConfigurations."$HOSTNAME".config.boot.kernelPackages.nvidia_x11.outPath --override-input nixpkgs "github:NixOS/nixpkgs/$LATEST_REV" --accept-flake-config)
+        
+        NEW_COMBINED="$NEW_KERNEL_HASH|$NEW_NVIDIA_HASH"
+        echo "new_hash=$NEW_COMBINED" >> $GITHUB_OUTPUT
+        
+        # 3. 读取上次成功的记录
+        OLD_COMBINED=$(cat last-hashes.txt 2>/dev/null || echo "")
+        
+        if [ "$NEW_COMBINED" = "$OLD_COMBINED" ]; then
+          echo "match=true" >> $GITHUB_OUTPUT
+          echo "内核和驱动版本未变化，跳过构建。"
+        else
+          echo "match=false" >> $GITHUB_OUTPUT
+          echo "检测到版本变动，准备构建..."
+        fi
+
     - name: Setup Cachix
-      # 只有当 hash 变动时才需要后续步骤
-      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev
+      if: steps.calc_hash.outputs.match == 'false'
       uses: cachix/cachix-action@v14
       with:
         name: rxda-cache # 【替换】你的 Cachix 名字
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
-    - name: Build Driver with Latest Nixpkgs
-      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev
+    - name: Build and Push to Cachix
+      if: steps.calc_hash.outputs.match == 'false'
       env:
         NIXPKGS_ALLOW_UNFREE: 1
       run: |
-        HOSTNAME="xiaomi-notebook" # 【替换】你的机器名
-        LATEST_REV="${{ steps.get_rev.outputs.latest_rev }}"
+        HOSTNAME="xiaomi-notebook"
+        LATEST_REV="${{ steps.calc_hash.outputs.latest_rev }}"
         
-        echo "检测到新版本: $LATEST_REV，开始预热缓存..."
-        
-        # 使用 --override-input 强制指定 nixpkgs 到最新 commit
+        # 真正开始下载依赖并编译
         nix build .#nixosConfigurations."$HOSTNAME".config.boot.kernelPackages.kernel \
                   .#nixosConfigurations."$HOSTNAME".config.boot.kernelPackages.nvidia_x11 \
           --override-input nixpkgs "github:NixOS/nixpkgs/$LATEST_REV" \
           --accept-flake-config \
           --print-build-logs
 
-    - name: Update Version File
-      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev && success()
+    - name: Update Hash File and Nixpkgs Record
+      if: steps.calc_hash.outputs.match == 'false' && success()
       run: |
-        echo "${{ steps.get_rev.outputs.latest_rev }}" > last-built-nixpkgs.txt
+        # 保存新的 Hash 记录
+        echo "${{ steps.calc_hash.outputs.new_hash }}" > last-hashes.txt
+        # 同时也保存对应的 nixpkgs rev，方便本地更新时参考
+        echo "${{ steps.calc_hash.outputs.latest_rev }}" > last-built-nixpkgs.txt
 
     - name: Commit and Push
-      if: steps.get_rev.outputs.latest_rev != steps.get_rev.outputs.old_rev && success()
+      if: steps.calc_hash.outputs.match == 'false' && success()
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_message: "chore: update cached nixpkgs version to ${{ steps.get_rev.outputs.latest_rev }}"
-        file_pattern: 'last-built-nixpkgs.txt'
+        commit_message: "chore: update built hashes [skip ci]"
+        file_pattern: 'last-hashes.txt last-built-nixpkgs.txt'
