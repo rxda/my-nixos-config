@@ -18,7 +18,7 @@ jobs:
     - name: Install Nix
       uses: DeterminateSystems/nix-installer-action@v16
       with:
-        nix_path: nixpkgs=channel:nixos-unstable
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Calculate Future Hashes
       id: calc_hash
