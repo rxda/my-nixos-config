@@ -9,10 +9,7 @@
     jq
 
     # 截图与 Wayland 工具 (如果你用 Niri 这里的很有用，GNOME 其实自带了)
-    grim
-    slurp
     wl-clipboard
-    mako
     inetutils
 
     # GNOME 插件
@@ -20,7 +17,7 @@
   ];
 
   # --- 环境变量 ---
-  environment.sessionVariables = rec {
+  environment.sessionVariables =  {
     # Steam / Proton
     NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
     NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";

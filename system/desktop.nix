@@ -41,7 +41,7 @@
       noto-fonts-color-emoji
       source-code-pro
       hack-font
-      jetbrains-mono
+      # jetbrains-mono
       wqy_microhei
       wqy_zenhei
       nerd-fonts.fira-code

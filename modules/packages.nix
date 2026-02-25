@@ -21,7 +21,7 @@
     pciutils # 查看 PCI 设备 (lspci)
     usbutils # 查看 USB 设备 (lsusb)
     lshw # 显示硬件详细信息
-    fastfetch # 那个显示 Linux Logo 和系统信息的帅气工具
+    fastfetch # 显示 Linux Logo 和系统信息的帅气工具
     util-linux # Linux 核心工具集 (你提到用于修复 IDEA 运行 Java 问题)
     eza # ls 的现代替代品 (支持图标和颜色)
     file # 查看文件类型的工具
@@ -61,7 +61,7 @@
 
     # --- 开发工具 ---
     git # 版本控制 (虽然有 programs.git，这里装一下防身)
-    postman # API 接口测试工具
+    reqable # API 接口测试工具
     android-tools # 安卓调试工具 (adb, fastboot)
     nixpkgs-reviewFull # nixpkg review工具  
     gh # github cli
