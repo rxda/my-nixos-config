@@ -100,8 +100,7 @@
       vscode-marketplace.tamasfe.even-better-toml
       vscode-marketplace.tobias-faller.vt100-syntax-highlighting
       vscode-marketplace.twxs.cmake
-      # vscode-marketplace-universal.vadimcn.vscode-lldb
-      vscode-marketplace.vmware.vscode-spring-boot
+      # vscode-marketplace-universal.vadimcn.vscode-lldb  
       vscode-marketplace.vscode-icons-team.vscode-icons
       vscode-marketplace.vstirbu.vscode-mermaid-preview
       vscode-marketplace.vue.volar
