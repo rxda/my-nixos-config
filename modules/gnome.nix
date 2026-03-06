@@ -65,6 +65,23 @@ in
       # 将 Alt+Shift+Tab 绑定到“反向切换窗口”
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
+
+    # 1. 注册自定义快捷键的目录
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings =[
+        # 注意：这里的路径必须以斜杠 "/" 结尾！
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        # 如果有第二个快捷键，继续添加 "/.../custom1/"
+      ];
+    };
+
+    # 2. 定义 custom0 快捷键的具体内容
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "Snipaste Capture";   # 快捷键名称（在系统设置里显示的名称）
+      command = "snipaste snip";   # 触发的命令
+      binding = "<Alt>a";          # 绑定的按键
+    };
+
     "org/gnome/shell" = {
       disable-user-extensions = false; # 确保没被全局禁用
 

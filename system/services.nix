@@ -10,6 +10,7 @@ _:
 
   # 二进制兼容 
   programs.nix-ld.enable = true;
+  services.envfs.enable = true;
 
   # --- Tailscale ---
   services.tailscale = {

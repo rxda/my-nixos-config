@@ -81,8 +81,9 @@
     firefox # 火狐浏览器
     wpsoffice-cn # WPS Office (国产办公套件)
     telegram-desktop # Telegram 桌面端
-    wechat-uos # 微信 (基于 UOS 版本的 Linux 客户端)
-    waypipe
+    wechat # 微信 (基于 UOS 版本的 Linux 客户端)
+    waypipe # 远程桌面
+    snipaste # 截图工具
 
     # ============================================================
     # 娱乐与游戏
