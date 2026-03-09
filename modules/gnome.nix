@@ -82,6 +82,20 @@ in
       binding = "<Alt>a";          # 绑定的按键
     };
 
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      # true: 在全屏模式下启用（全屏看视频或玩游戏时，鼠标贴边可以呼出 Dock）
+      # false: 在全屏模式下完全禁用（鼠标贴边也不会呼出，防误触）
+      autohide-in-fullscreen = true; 
+      
+      # [可选] 下面是一些常用的其他 Dash to Dock 选项，你可以顺便一起用代码配置
+      
+      dock-fixed = false;       # 取消一直固定在桌面上（启用自动隐藏的前提）
+      intellihide = true;       # 开启智能隐藏
+      dock-position = "BOTTOM"; # Dock 放在底部 ("BOTTOM", "LEFT", "RIGHT", "TOP")
+      # dash-max-icon-size = 48;  # 图标大小
+      # apply-custom-theme = true;# 使用内置主题（有时候比系统自带的顺眼）
+    };
+
     "org/gnome/shell" = {
       disable-user-extensions = false; # 确保没被全局禁用
 
