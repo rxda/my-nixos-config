@@ -25,6 +25,10 @@ in
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
 
+    unitConfig = { 
+      ConditionHost = "!link-eq12";
+    };
+    
     serviceConfig = {
       # 指定配置文件路径 (这个路径是可写的)
       ExecStart = "${sing-box-latest}/bin/sing-box run -c /var/lib/sing-box/config.json";
