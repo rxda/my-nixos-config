@@ -67,6 +67,7 @@
     gh # github cli
     scrcpy # 安卓
     git-filter-repo # git历史修改
+    dnsutils
 
     # --- 编辑器与终端 ---
     jetbrains.idea # IntelliJ IDEA 旗舰版 (Java IDE)
