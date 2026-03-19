@@ -50,6 +50,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur-xddxdd = {
+      url = "github:xddxdd/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # outputs 不再需要手写参数
