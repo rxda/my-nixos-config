@@ -86,6 +86,8 @@
     wechat # 微信 (基于 UOS 版本的 Linux 客户端)
     waypipe # 远程桌面
     snipaste # 截图工具
+    qq # QQ
+    gpu-screen-recorder-gtk # 录屏软件，gnome自带的没声音
 
     # ============================================================
     # 娱乐与游戏

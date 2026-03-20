@@ -8,6 +8,11 @@ let
 in
 {
 
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+  };
+
 
   # 1. 确保安装 sing-box
   environment.systemPackages = [ sing-box-latest ];
@@ -25,10 +30,6 @@ in
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
 
-    unitConfig = { 
-      ConditionHost = "!link-eq12";
-    };
-    
     serviceConfig = {
       # 指定配置文件路径 (这个路径是可写的)
       ExecStart = "${sing-box-latest}/bin/sing-box run -c /var/lib/sing-box/config.json";
