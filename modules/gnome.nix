@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, inputs, lib, ... }:
 
 let
   # 1. 定义壁纸在 Nix Store 中的路径
@@ -31,14 +31,14 @@ in
     };
   };
 
-  home.packages = with pkgs.gnomeExtensions; [
+  home.packages = [
     # 举例：常用的几个扩展
-    appindicator # 托盘图标支持 (AppIndicator and KStatusNotifierItem Support)
-    dash-to-dock # 把底栏变成 Dock
-    blur-my-shell # 让界面有毛玻璃效果
-    clipboard-indicator # 剪贴板历史
-    pip-on-top
-    user-themes # 如果你想换 Shell 主题，需要这个
+    pkgs.gnomeExtensions.appindicator # 托盘图标支持 (AppIndicator and KStatusNotifierItem Support)
+    inputs.nixpkgs-2511.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gnomeExtensions.dash-to-dock # 把底栏变成 Dock
+    pkgs.gnomeExtensions.blur-my-shell # 让界面有毛玻璃效果
+    pkgs.gnomeExtensions.clipboard-indicator # 剪贴板历史
+    pkgs.gnomeExtensions.pip-on-top
+    pkgs.gnomeExtensions.user-themes # 如果你想换 Shell 主题，需要这个
   ];
 
   dconf.settings = {
@@ -99,13 +99,13 @@ in
     "org/gnome/shell" = {
       disable-user-extensions = false; # 确保没被全局禁用
 
-      enabled-extensions = with pkgs.gnomeExtensions; [
+      enabled-extensions = [
         # --- 第三方热门插件 (使用 pkgs.gnomeExtensions) ---
-        dash-to-dock.extensionUuid
-        appindicator.extensionUuid
-        blur-my-shell.extensionUuid
-        clipboard-indicator.extensionUuid
-        pip-on-top.extensionUuid
+        inputs.nixpkgs-2511.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gnomeExtensions.dash-to-dock.extensionUuid
+        pkgs.gnomeExtensions.appindicator.extensionUuid
+        pkgs.gnomeExtensions.blur-my-shell.extensionUuid
+        pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
+        pkgs.gnomeExtensions.pip-on-top.extensionUuid
 
         # --- GNOME 官方内置扩展 (通常由 gnome-shell-extensions 包提供) ---
         # 注意：官方扩展在 Nixpkgs 中通常是一组，UUID 比较固定，可以直接写字符串

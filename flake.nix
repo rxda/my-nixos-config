@@ -5,6 +5,7 @@
   inputs = {
     # 1. 主 Nixpkgs 源
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-2511.url = "github:nixos/nixpkgs/nixos-25.11";
 
     # 2. 让 home-manager 跟随主 nixpkgs
     home-manager = {
@@ -48,11 +49,6 @@
 
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nur-xddxdd = {
-      url = "github:xddxdd/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
