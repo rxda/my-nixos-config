@@ -82,6 +82,11 @@ in
       binding = "<Alt>a";          # 绑定的按键
     };
 
+    # 显示最小化和最大化按钮
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+    };
+
     "org/gnome/shell/extensions/dash-to-dock" = {
       # true: 在全屏模式下启用（全屏看视频或玩游戏时，鼠标贴边可以呼出 Dock）
       # false: 在全屏模式下完全禁用（鼠标贴边也不会呼出，防误触）

@@ -30,7 +30,6 @@
     ../system/fcitx5-rime.nix
     ../system/config.nix
     ../system/xpra.nix
-
   ];
 
   # 3. 引入 VSCode 扩展的 overlay

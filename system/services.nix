@@ -38,7 +38,7 @@ _:
     enable = true;
     settings = {
       shared = {
-        path = "/home/rxda/Documents";
+        path = "/home/rxda";
         browseable = "yes";
         "read only" = "no";
         "valid users" = "rxda";
