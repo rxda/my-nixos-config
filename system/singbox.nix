@@ -88,20 +88,6 @@ in
     '';
   };
 
-  # 4. 定义定时器 (每天执行一次更新脚本)
-  systemd.timers.sing-box-update = {
-    wantedBy = [ "timers.target" ];
-    partOf = [ "sing-box-update.service" ];
-    timerConfig = {
-      # 每天凌晨 4:00 更新
-      OnCalendar = "*-*-* 04:00:00";
-      # 开机后 5 分钟也尝试更新一次
-      OnBootSec = "5m";
-      # 如果关机错过了时间，开机立即补跑
-      Persistent = true;
-    };
-  };
-
 }
 
 

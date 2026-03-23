@@ -72,6 +72,7 @@
   nix.settings = {
     substituters = [
       "https://rxda-cache.cachix.org"
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org" # 官方源
     ];
 
