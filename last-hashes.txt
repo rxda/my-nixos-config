@@ -1,1 +1,1 @@
-/nix/store/hwyx2l9wi4wxsxgkd6yrvs566xpkqdkr-linux-6.18.18|/nix/store/wkmgghrdbrpb6kjk68m209v9xfif04k2-nvidia-x11-580.142-6.18.18
+/nix/store/vc5wrxbimdcmd76dibmnvda33j9566zp-linux-6.18.19|/nix/store/mrdqcyfnhqg7lphhif3lxzllidgi3dm9-nvidia-x11-580.142-6.18.19
