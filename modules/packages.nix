@@ -42,6 +42,7 @@
     gnugrep # GNU 版本的 grep (搜索文本)
     filezilla # FTP客户端
     jmtpfs # FUSE filesystem for MTP devices like Android phones
+    cifs-utils # smb挂载
     # ============================================================
     # 开发环境 (Dev)
     # ============================================================
@@ -56,7 +57,8 @@
     jdk25_headless
     pkg-configUpstream # rust-analyzer依赖
     lldb # rust调试
-    python314
+    python314 # python
+
 
 
     # --- 开发工具 ---
@@ -67,14 +69,14 @@
     gh # github cli
     scrcpy # 安卓
     git-filter-repo # git历史修改
-    dnsutils
+    dnsutils # dns工具
 
     # --- 编辑器与终端 ---
     jetbrains.idea # IntelliJ IDEA 旗舰版 (Java IDE)
     jetbrains.datagrip # DataGrip (数据库管理 IDE)
     yazi # 极速终端文件管理器 (用 Rust 写的)
     ghostty # 终端
-    antigravity
+    antigravity # google的vibe code工具
     # ============================================================
     # 日常办公与社交
     # ============================================================
