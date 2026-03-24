@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   # Starship 提示符
@@ -41,6 +41,14 @@
     enable = true;
     nix-direnv.enable = true;
     enableZshIntegration = true;
+    config = {
+      whitelist = {
+        # 这是一个路径列表，在该路径下的所有项目都会被自动允许
+        prefix = [
+          "/home/rxda/Documents/code"
+        ];
+      };
+    };
   };
 
   programs.atuin = {
