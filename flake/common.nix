@@ -91,4 +91,22 @@
 
   # --- 网络 ---
   networking.networkmanager.enable = true;
+
+  # 1. 提高用户登录限制 (PAM)
+  security.pam.loginLimits = [
+    { domain = "*"; type = "soft"; item = "nofile"; value = "65536"; }
+    { domain = "*"; type = "hard"; item = "nofile"; value = "1048576"; }
+  ];
+
+  # 2. 针对系统级 Systemd 实例
+  # 这影响系统服务以及由系统 systemd 启动的图形界面进程
+  systemd.settings.Manager = {
+    DefaultLimitNOFILE = "65536:1048576";
+  };
+
+  # 3. 针对用户级 Systemd 实例
+  # VS Code 如果作为用户服务或从桌面环境启动，通常受此限制影响
+  systemd.user.extraConfig = ''
+    DefaultLimitNOFILE=65536:1048576
+  '';
 }

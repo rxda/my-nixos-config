@@ -65,7 +65,7 @@
     git # 版本控制 (虽然有 programs.git，这里装一下防身)
     reqable # API 接口测试工具
     android-tools # 安卓调试工具 (adb, fastboot)
-    nixpkgs-reviewFull # nixpkg review工具  
+    nixpkgs-reviewFull # nixpkg review工具
     gh # github cli
     scrcpy # 安卓
     git-filter-repo # git历史修改
@@ -93,7 +93,6 @@
     # ============================================================
     # 娱乐与游戏
     # ============================================================
-    spotify # 听歌
     chiaki-ng # PS4/PS5 远程串流客户端
 
     # ============================================================
