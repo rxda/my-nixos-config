@@ -35,7 +35,8 @@
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
-
+  # 关闭节能wifi
+  networking.networkmanager.wifi.powersave = false;
 
   # 系统版本 (千万别删)
   system.stateVersion = "25.11";
