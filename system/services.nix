@@ -17,9 +17,7 @@
     enable = true;
     useRoutingFeatures = "both";
     extraSetFlags = [
-      "--accept-routes"
-      "--advertise-routes=192.168.10.0/24,192.168.32.0/24"
-      "--accept-dns=true"
+      "--accept-routes=true"
     ];
   };
   # --- ssh ---
