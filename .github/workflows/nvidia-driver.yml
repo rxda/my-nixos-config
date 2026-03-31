@@ -21,7 +21,7 @@ jobs:
     - name: Check nixpkgs commit
       id: nixpkgs_check
       run: |
-        LATEST_REV=$(curl -s https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable | jq -r '.commit.sha')
+        LATEST_REV=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable)
         OLD_REV=$(cat last-built-nixpkgs.txt 2>/dev/null || echo "")
         
         echo "latest_rev=$LATEST_REV" >> $GITHUB_OUTPUT
