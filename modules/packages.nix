@@ -62,7 +62,7 @@
 
 
     # --- 开发工具 ---
-    git # 版本控制 (虽然有 programs.git，这里装一下防身)
+    git # 版本控制
     reqable # API 接口测试工具
     android-tools # 安卓调试工具 (adb, fastboot)
     nixpkgs-reviewFull # nixpkg review工具

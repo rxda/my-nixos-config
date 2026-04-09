@@ -16,7 +16,7 @@
   home.homeDirectory = "/home/rxda";
 
   # Home Manager 版本控制
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.05";
 
   # 启用 Home Manager 自身管理
   programs.home-manager.enable = true;

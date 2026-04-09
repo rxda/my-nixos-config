@@ -12,14 +12,6 @@
   programs.nix-ld.enable = true;
   services.envfs.enable = true;
 
-  # --- Tailscale ---
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "both";
-    extraSetFlags = [
-      "--accept-routes=true"
-    ];
-  };
   # --- ssh ---
   services.openssh.enable = true;
 

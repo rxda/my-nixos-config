@@ -11,6 +11,7 @@
         ./common.nix
         ../hosts/xiaomi-notebook/configuration.nix
         ../hosts/xiaomi-notebook/hardware-configuration.nix
+        ../system/tailscale.nix
       ];
     };
 
