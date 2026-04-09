@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # --- 基础网络工具 ---
@@ -47,7 +47,7 @@
     enable = true;
     trustedInterfaces = [ "wlp4s0" "virbr0" "docker0" "tun0" "tailscale0" ];
     # Samba wsdd 需要的端口
-    allowedTCPPorts = [ 5357 ];
+    allowedTCPPorts = [ 5357 5005 ];
     allowedUDPPorts = [ 3702 ];
   };
 
@@ -56,4 +56,18 @@
 
   # 启用 zram 交换内存，可以缓解物理内存不足，且比磁盘 swap 快得多
   zramSwap.enable = true;
+
+  # webdav
+  # Dufs 没有内置的复杂 service 配置，可以用 systemd.services 简单包装
+  systemd.services.dufs = {
+    description = "Dufs WebDAV Server";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.dufs}/bin/dufs /home/rxda -p 5005 -a admin:password@/:rw";
+      Restart = "always";
+      User = "rxda"; # 如果需要访问特定权限目录，也可以指定普通用户
+    };
+  };
+
 }
