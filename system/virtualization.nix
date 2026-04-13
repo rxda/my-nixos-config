@@ -10,10 +10,8 @@
     };
   };
 
-  # 3. 安装相关工具
   environment.systemPackages = with pkgs; [
-    # waydroid x86转义arm
-    waydroid-helper
+    OVMF
   ];
 
   # --- Libvirt (KVM/QEMU) ---
@@ -26,12 +24,4 @@
   programs.virt-manager.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
-  # 确保用户组在 configuration.nix 里已经加了 libvirtd
-  networking.nftables.enable = true;
-
-  # waydroid 
-  virtualisation.waydroid = {
-    enable = true;
-    package = pkgs.waydroid-nftables;
-  };
 }

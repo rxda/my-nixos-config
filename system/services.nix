@@ -42,6 +42,7 @@
   # Windows 发现服务
   services.samba-wsdd.enable = true;
 
+  networking.nftables.enable = true;
   # --- 防火墙 ---
   networking.firewall = {
     enable = true;
@@ -64,7 +65,7 @@
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.dufs}/bin/dufs /home/rxda -p 5005 -a admin:password@/:rw";
+      ExecStart = "${pkgs.dufs}/bin/dufs /home/rxda -p 5005 -a rxda:Admin123!@/:rw -A";
       Restart = "always";
       User = "rxda"; # 如果需要访问特定权限目录，也可以指定普通用户
     };
