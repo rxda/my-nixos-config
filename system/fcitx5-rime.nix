@@ -34,8 +34,6 @@
 
   # 2. (可选) 针对 GNOME 的额外优化
   # Fcitx5 在 GNOME Wayland 下可能没有状态栏图标
-  # 建议安装 GNOME 扩展: "AppIndicator and KStatusNotifierItem Support" 
-  # 或者 "Input Method Panel"
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.kimpanel
@@ -44,7 +42,7 @@
   # --- 2. 用户级配置 (Home Manager Level) ---
   home-manager.users.rxda = {
     # 自动链接雾凇拼音的所有配置文件到 Rime 目录
-    # 这样你就不用手动下载、解压和更新词库了
+    # 这样就不用手动下载、解压和更新词库了
     home.file.".local/share/fcitx5/rime" = {
       source = "${pkgs.rime-ice}/share/rime-data";
       recursive = true;

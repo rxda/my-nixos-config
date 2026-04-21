@@ -88,6 +88,7 @@
     snipaste # 截图工具
     qq # QQ
     gpu-screen-recorder-gtk # 录屏软件，gnome自带的没声音
+    ripgrep-all
 
     # ============================================================
     # 娱乐与游戏
