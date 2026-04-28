@@ -4,43 +4,46 @@
 
   home.packages = [
     pkgs.nixd
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
   ];
 
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
-    enableExtensionUpdateCheck = false;
-    enableUpdateCheck = false;
 
-    profiles.default.userSettings = {
-      # 开启自动保存，建议使用 afterDelay
-      "files.autoSave" = "afterDelay";
-      # 设置自动保存延迟（毫秒），1000 毫秒即 1 秒
-      "files.autoSaveDelay" = 1000;
+    profiles.default = {
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
 
-      "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nixd";
+      userSettings = {
+        # 开启自动保存，建议使用 afterDelay
+        "files.autoSave" = "afterDelay";
+        # 设置自动保存延迟（毫秒），1000 毫秒即 1 秒
+        "files.autoSaveDelay" = 1000;
+        "vsicons.dontShowNewVersionMessage" = true;
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
 
-      "nix.serverSettings" = {
-        "nixd" = {
-          "formatting" = {
-            "command" = [ "nixfmt" ];
-          };
-          "options" = {
-            # 这里的配置是 nixd 的灵魂，它能让你在写 Nix 选项时获得补全
-            # 它可以关联你的 nixpkgs 路径
-            "nixpkgs" = {
-              "expr" = "import <nixpkgs> { }";
+        "nix.serverSettings" = {
+          "nixd" = {
+            "formatting" = {
+              "command" = [ "nixfmt" ];
+            };
+            "options" = {
+              # 这里的配置是 nixd 的灵魂，它能让你在写 Nix 选项时获得补全
+              # 它可以关联你的 nixpkgs 路径
+              "nixpkgs" = {
+                "expr" = "import <nixpkgs> { }";
+              };
             };
           };
         };
-      };
 
-      # 开启保存自动格式化
-      "[nix]" = {
-        "editor.defaultFormatter" = "jnoortheen.nix-ide";
-        "editor.formatOnSave" = true;
+        # 开启保存自动格式化
+        "[nix]" = {
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+          "editor.formatOnSave" = true;
+        };
       };
     };
 
@@ -79,7 +82,7 @@
       vscode-marketplace.rust-lang.rust-analyzer
       vscode-marketplace.tamasfe.even-better-toml
       vscode-marketplace.twxs.cmake
-      # vscode-marketplace-universal.vadimcn.vscode-lldb  
+      # vscode-marketplace-universal.vadimcn.vscode-lldb
       vscode-marketplace.vscode-icons-team.vscode-icons
       vscode-marketplace.vstirbu.vscode-mermaid-preview
       vscode-marketplace.vue.volar

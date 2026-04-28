@@ -1,4 +1,9 @@
-{ pkgs, inputs, lib, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 let
   # 1. 定义壁纸在 Nix Store 中的路径
@@ -29,6 +34,8 @@ in
       name = "Adwaita";
       package = pkgs.gnome-themes-extra;
     };
+
+    gtk4.theme = null;
   };
 
   home.packages = [
@@ -68,7 +75,7 @@ in
 
     # 1. 注册自定义快捷键的目录
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings =[
+      custom-keybindings = [
         # 注意：这里的路径必须以斜杠 "/" 结尾！
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         # 如果有第二个快捷键，继续添加 "/.../custom1/"
@@ -77,9 +84,9 @@ in
 
     # 2. 定义 custom0 快捷键的具体内容
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "Snipaste Capture";   # 快捷键名称（在系统设置里显示的名称）
-      command = "snipaste snip";   # 触发的命令
-      binding = "<Alt>a";          # 绑定的按键
+      name = "Snipaste Capture"; # 快捷键名称（在系统设置里显示的名称）
+      command = "snipaste snip"; # 触发的命令
+      binding = "<Alt>a"; # 绑定的按键
     };
 
     # 显示最小化和最大化按钮
@@ -90,12 +97,12 @@ in
     "org/gnome/shell/extensions/dash-to-dock" = {
       # true: 在全屏模式下启用（全屏看视频或玩游戏时，鼠标贴边可以呼出 Dock）
       # false: 在全屏模式下完全禁用（鼠标贴边也不会呼出，防误触）
-      autohide-in-fullscreen = true; 
-      
+      autohide-in-fullscreen = true;
+
       # [可选] 下面是一些常用的其他 Dash to Dock 选项，你可以顺便一起用代码配置
-      
-      dock-fixed = false;       # 取消一直固定在桌面上（启用自动隐藏的前提）
-      intellihide = true;       # 开启智能隐藏
+
+      dock-fixed = false; # 取消一直固定在桌面上（启用自动隐藏的前提）
+      intellihide = true; # 开启智能隐藏
       dock-position = "BOTTOM"; # Dock 放在底部 ("BOTTOM", "LEFT", "RIGHT", "TOP")
       # dash-max-icon-size = 48;  # 图标大小
       # apply-custom-theme = true;# 使用内置主题（有时候比系统自带的顺眼）
@@ -129,6 +136,5 @@ in
       ];
     };
   };
-
 
 }

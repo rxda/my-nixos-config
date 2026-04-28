@@ -25,5 +25,5 @@
   };
 
   # 系统版本 (千万别删)
-  system.stateVersion = "26.05";
+  system.stateVersion = "25.11";
 }
