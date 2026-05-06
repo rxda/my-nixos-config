@@ -1,5 +1,11 @@
 # flake/common.nix
-{ self, inputs, pkgs, ... }: {
+{
+  self,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   # 这个文件会被所有主机导入
   imports = [
     # 1. 引入 Agenix 和 VSCode Server
@@ -54,7 +60,12 @@
   users.users.rxda = {
     isNormalUser = true;
     description = "rxda";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "libvirtd"
+    ];
     openssh.authorizedKeys.keys = [
       # eq12
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKEmmnspv3TeLPEMHS99R+cLfSVeEerXR9RQE2E9XGzh"
@@ -71,6 +82,7 @@
   nix.settings = {
     substituters = [
       "https://rxda-cache.cachix.org"
+      "https://attic.xuyh0120.win/lantian" # nur cache
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org" # 官方源
     ];
@@ -78,6 +90,7 @@
     # 2. 添加信任公钥
     trusted-public-keys = [
       "rxda-cache.cachix.org-1:LDGrYaB+dF7wh+uWMLjh5VsckzFnnCyGkMH1sKHN++g="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" # nur cache
     ];
 
     experimental-features = [ "nix-command" "flakes" ];
