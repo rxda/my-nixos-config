@@ -59,8 +59,6 @@
     lldb # rust调试
     python314 # python
 
-
-
     # --- 开发工具 ---
     git # 版本控制
     reqable # API 接口测试工具
@@ -91,7 +89,9 @@
     qq # QQ
     gpu-screen-recorder-gtk # 录屏软件，gnome自带的没声音
     ripgrep-all
-
+    inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk
+    libmtp
+    android-file-transfer
     # ============================================================
     # 娱乐与游戏
     # ============================================================

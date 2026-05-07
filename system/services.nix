@@ -71,4 +71,7 @@
     };
   };
 
+  # mtp
+  services.gvfs.enable = true;
+
 }
