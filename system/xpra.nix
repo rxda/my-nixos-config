@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # 1. 开启 Xpra 服务
   environment.systemPackages = [
     pkgs.xpra

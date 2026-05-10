@@ -21,7 +21,10 @@ in
     enable = true;
     trustedInterfaces = [ cfg.tunInterface ];
     checkReversePath = false;
-    allowedTCPPorts = [ 53 9090 ]; # DNS 和 Controller 端口
+    allowedTCPPorts = [
+      53
+      9090
+    ]; # DNS 和 Controller 端口
     allowedUDPPorts = [ 53 ];
   };
   networking.nat = {

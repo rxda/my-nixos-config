@@ -15,7 +15,7 @@
   ];
 
   # --- 环境变量 ---
-  environment.sessionVariables =  {
+  environment.sessionVariables = {
     # Steam / Proton
     NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
     NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";

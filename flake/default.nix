@@ -1,4 +1,5 @@
-{ inputs, self, ... }: {
+{ inputs, self, ... }:
+{
 
   # 定义 nixosConfigurations
   flake.nixosConfigurations = {
@@ -6,7 +7,6 @@
     xiaomi-notebook = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs self; };
-      # 模块列表变得极其干净
       modules = [
         ./common.nix
         ../hosts/xiaomi-notebook/configuration.nix

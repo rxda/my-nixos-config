@@ -93,9 +93,16 @@
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" # nur cache
     ];
 
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     auto-optimise-store = true;
-    trusted-users = [ "root" "@wheel" "rxda" ];
+    trusted-users = [
+      "root"
+      "@wheel"
+      "rxda"
+    ];
   };
 
   # --- 引导与内核 ---
@@ -107,8 +114,18 @@
 
   # 1. 提高用户登录限制 (PAM)
   security.pam.loginLimits = [
-    { domain = "*"; type = "soft"; item = "nofile"; value = "65536"; }
-    { domain = "*"; type = "hard"; item = "nofile"; value = "1048576"; }
+    {
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "65536";
+    }
+    {
+      domain = "*";
+      type = "hard";
+      item = "nofile";
+      value = "1048576";
+    }
   ];
 
   # 2. 针对系统级 Systemd 实例

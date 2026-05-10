@@ -8,7 +8,7 @@
     enableSSHSupport = false;
   };
 
-  # 二进制兼容 
+  # 二进制兼容
   programs.nix-ld.enable = true;
   services.envfs.enable = true;
 
@@ -46,9 +46,18 @@
   # --- 防火墙 ---
   networking.firewall = {
     enable = true;
-    trustedInterfaces = [ "wlp4s0" "virbr0" "docker0" "tun0" "tailscale0" ];
+    trustedInterfaces = [
+      "wlp4s0"
+      "virbr0"
+      "docker0"
+      "tun0"
+      "tailscale0"
+    ];
     # Samba wsdd 需要的端口
-    allowedTCPPorts = [ 5357 5005 ];
+    allowedTCPPorts = [
+      5357
+      5005
+    ];
     allowedUDPPorts = [ 3702 ];
   };
 

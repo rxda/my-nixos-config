@@ -5,7 +5,10 @@ let
   user_xiaomi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOaFc3auZJZIvznu+0/s25njbAlvLhAjKC8iUj3mexxP";
 
   # 把所有“人”放在一组
-  all_users = [ user_eq12 user_xiaomi ];
+  all_users = [
+    user_eq12
+    user_xiaomi
+  ];
 
   # --- 2. 主机公钥 (System Keys) ---
   # 作用：允许 这台电脑 在开机/部署时解密文件
@@ -13,7 +16,10 @@ let
   system_xiaomi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZl8cppETMB71druhUoqbqFPuAgh7Oy7xnzICz/aEYX";
 
   # 把所有“机器”放在一组
-  all_systems = [ system_eq12 system_xiaomi ];
+  all_systems = [
+    system_eq12
+    system_xiaomi
+  ];
 in
 {
   "singbox-url.age".publicKeys = all_users ++ all_systems;

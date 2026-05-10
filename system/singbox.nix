@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   # 这里的 pkgs.system 会自动匹配当前机器架构 (x86_64-linux)
@@ -12,7 +17,6 @@ in
     "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_congestion_control" = "bbr";
   };
-
 
   # 1. 确保安装 sing-box
   environment.systemPackages = [ sing-box-latest ];
@@ -61,21 +65,21 @@ in
       # === 配置你的订阅链接 ===
       # 建议在链接最后加上 &flag=sing-box 让转换后端吐出正确的格式
       URL=$(cat ${config.age.secrets.singbox-url.path})
-      
+
       CONFIG_DIR="/var/lib/sing-box"
       TARGET="$CONFIG_DIR/config.json"
       TEMP="$CONFIG_DIR/config.json.tmp"
-      
+
       mkdir -p "$CONFIG_DIR"
 
       echo "Downloading update..."
       ${pkgs.curl}/bin/curl -L -o "$TEMP" "$URL"
-      
+
       # === 关键步骤：验证配置 ===
       # 下载下来的文件可能是坏的 (比如网络中断，或者机场后端崩了)
       # 如果直接覆盖，sing-box 就会挂掉。
       # 所以必须先用 sing-box check 检查一遍语法。
-      
+
       if ${sing-box-latest}/bin/sing-box check -c "$TEMP"; then
         echo "Configuration check passed. Restarting service..."
         mv "$TEMP" "$TARGET"
@@ -89,6 +93,3 @@ in
   };
 
 }
-
-
-

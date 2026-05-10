@@ -19,14 +19,17 @@
     wantedBy = [ "multi-user.target" ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 30020 6800 ];
+  networking.firewall.allowedTCPPorts = [
+    30020
+    6800
+  ];
 
   services.aria2 = {
     enable = true;
     openPorts = true;
     serviceUMask = "0002";
     settings = {
-      "rpc-listen-all"= true;
+      "rpc-listen-all" = true;
       dir = "${config.users.users.rxda.home}/Downloads";
     };
     rpcSecretFile = "${config.users.users.rxda.home}/.config/aria2/aria2-rpc-token.txt";
