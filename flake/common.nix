@@ -81,10 +81,10 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
     substituters = [
-      "https://rxda-cache.cachix.org"
-      "https://attic.xuyh0120.win/lantian" # nur cache
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org" # 官方源
+      "https://rxda-cache.cachix.org"
+      "https://attic.xuyh0120.win/lantian" # nur cache
     ];
 
     # 2. 添加信任公钥

@@ -41,7 +41,7 @@ in
   home.packages = [
     # 举例：常用的几个扩展
     pkgs.gnomeExtensions.appindicator # 托盘图标支持 (AppIndicator and KStatusNotifierItem Support)
-    inputs.nixpkgs-2511.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gnomeExtensions.dash-to-dock # 把底栏变成 Dock
+    pkgs.gnomeExtensions.dash-to-dock # 把底栏变成 Dock
     pkgs.gnomeExtensions.blur-my-shell # 让界面有毛玻璃效果
     pkgs.gnomeExtensions.clipboard-indicator # 剪贴板历史
     pkgs.gnomeExtensions.pip-on-top
@@ -113,7 +113,7 @@ in
 
       enabled-extensions = [
         # --- 第三方热门插件 (使用 pkgs.gnomeExtensions) ---
-        inputs.nixpkgs-2511.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gnomeExtensions.dash-to-dock.extensionUuid
+        pkgs.gnomeExtensions.dash-to-dock.extensionUuid
         pkgs.gnomeExtensions.appindicator.extensionUuid
         pkgs.gnomeExtensions.blur-my-shell.extensionUuid
         pkgs.gnomeExtensions.clipboard-indicator.extensionUuid
