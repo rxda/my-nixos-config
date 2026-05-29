@@ -94,7 +94,7 @@
       vscode-marketplace.quicktype.quicktype
       vscode-marketplace.biomejs.biome
       vscode-marketplace.bradlc.vscode-tailwindcss
-      vscode-marketplace.rooveterinaryinc.roo-cline
+      vscode-marketplace.zoocodeorganization.zoo-code
       vscode-marketplace.anthropic.claude-code
       vscode-extensions.vadimcn.vscode-lldb
     ];
