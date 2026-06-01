@@ -1,1 +1,1 @@
-/nix/store/q0g5fpk7vrzcr17apawf5gp1v67g6bfh-linux-6.18.33|/nix/store/s3alccjwjvwr7myss97miz0jb97hyv41-nvidia-x11-595.71.05
+/nix/store/q0g5fpk7vrzcr17apawf5gp1v67g6bfh-linux-6.18.33|/nix/store/rfacrwa133a0xibh0qig0lrva3n51bhz-nvidia-x11-595.71.05
