@@ -10,6 +10,7 @@
     unzip # zip 解压工具
     xz # xz 高压缩率工具
     p7zip # 7z 压缩工具 (支持多种格式)
+    unrar
 
     # --- 系统监控与硬件 ---
     tree # 以树状图显示目录结构
@@ -72,7 +73,6 @@
     # --- 编辑器与终端 ---
     jetbrains.idea # IntelliJ IDEA 旗舰版 (Java IDE)
     jetbrains.datagrip # DataGrip (数据库管理 IDE)
-    yazi # 极速终端文件管理器 (用 Rust 写的)
     ghostty # 终端
     antigravity
     claude-code

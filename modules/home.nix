@@ -6,6 +6,7 @@
     ./shell.nix
     ./git.nix
     ./vscode.nix
+    ./zed.nix
     ./packages.nix
     ./template.nix
     ./gnome.nix
@@ -16,7 +17,7 @@
   home.homeDirectory = "/home/rxda";
 
   # Home Manager 版本控制
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.11";
 
   # 启用 Home Manager 自身管理
   programs.home-manager.enable = true;
