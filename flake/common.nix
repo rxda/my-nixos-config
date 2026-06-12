@@ -133,10 +133,4 @@
   systemd.settings.Manager = {
     DefaultLimitNOFILE = "65536:1048576";
   };
-
-  # 3. 针对用户级 Systemd 实例
-  # VS Code 如果作为用户服务或从桌面环境启动，通常受此限制影响
-  systemd.user.extraConfig = ''
-    DefaultLimitNOFILE=65536:1048576
-  '';
 }
