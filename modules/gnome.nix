@@ -49,6 +49,16 @@ in
   ];
 
   dconf.settings = {
+    "org/gnome/desktop/session" = {
+      idle-delay = lib.hm.gvariant.mkUint32 300;
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
+      sleep-inactive-ac-timeout = 0;
+      power-button-action = "nothing";
+    };
+
     "org/gnome/desktop/background" = {
       # GNOME 要求路径必须以 file:// 开头
       picture-uri = lib.mkForce "file://${wallpaperFile}";
