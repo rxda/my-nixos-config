@@ -10,7 +10,7 @@
     unzip # zip 解压工具
     xz # xz 高压缩率工具
     p7zip # 7z 压缩工具 (支持多种格式)
-    unrar
+    unrar # 解压 RAR 格式文件
 
     # --- 系统监控与硬件 ---
     tree # 以树状图显示目录结构
@@ -53,9 +53,9 @@
     nix-index # 提供 command-not-found 功能 (查找命令属于哪个包)
     direnv # 进入目录自动加载环境变量 (开发神器)
     statix # 自动修复过时配置
-    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default # agenix: NixOS 加密密钥管理工具
     # --- 编程语言与编译器 ---
-    jdk25_headless
+    jdk25_headless # JDK 25 (headless, 无图形界面依赖, 适合服务器/开发环境)
     pkg-configUpstream # rust-analyzer依赖
     lldb # rust调试
     python314 # python
@@ -74,10 +74,10 @@
     jetbrains.idea # IntelliJ IDEA 旗舰版 (Java IDE)
     jetbrains.datagrip # DataGrip (数据库管理 IDE)
     ghostty # 终端
-    antigravity
-    claude-code
-    opencode
-    wl-clipboard-rs
+    antigravity # Goolge的AI Agent编辑器
+    claude-code # Claude Code: Anthropic 的 AI 辅助编码工具 (终端版)
+    opencode # OpenCode: 开源的 AI 编码助手 (终端版)
+    wl-clipboard-rs # Wayland 剪贴板工具 (wl-copy/wl-paste, Rust 重写版)
     # ============================================================
     # 日常办公与社交
     # ============================================================
@@ -90,10 +90,10 @@
     snipaste # 截图工具
     qq # QQ
     gpu-screen-recorder-gtk # 录屏软件，gnome自带的没声音
-    ripgrep-all
-    inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk
-    libmtp
-    android-file-transfer
+    ripgrep-all # (rga) 增强版 ripgrep, 支持搜索 PDF/DOCX/压缩包等二进制文件
+    inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk # 百度网盘 Linux 客户端
+    libmtp # MTP 设备通信库 (连接手机等便携设备)
+    android-file-transfer # 安卓设备文件传输工具 (MTP 协议)
     # ============================================================
     # 娱乐与游戏
     # ============================================================
