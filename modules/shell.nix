@@ -71,4 +71,13 @@
       ];
     };
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    options = [
+      "--cmd cd" # 用 zoxide 替代原生 cd，支持模糊匹配和智能跳转
+      "--hook prompt" # 每次提示符出现时记录路径（比 pwd 更及时）
+    ];
+  };
 }
