@@ -35,6 +35,9 @@
     "net.ipv6.conf.all.forwarding" = 1;
   };
 
+  # sing-box 不开机启动
+  systemd.services.sing-box.wantedBy = [ ];
+
   # 关闭节能wifi
   networking.networkmanager.wifi.powersave = false;
 

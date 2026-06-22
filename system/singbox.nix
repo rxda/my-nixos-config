@@ -46,11 +46,6 @@ in
       # --- 权限设置 (TUN 模式必备) ---
       # 如果你用 Tun 模式，通常需要 root 或 NET_ADMIN 权限
       User = "root";
-      # 如果你很在意安全，想用非 root 用户，必须开启以下 Capability：
-      # User = "sing-box";
-      # DynamicUser = true;
-      # CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE";
-      # AmbientCapabilities = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE";
     };
   };
 
