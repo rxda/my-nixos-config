@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # --- hostname ---
@@ -36,7 +36,7 @@
   };
 
   # sing-box 不开机启动
-  systemd.services.sing-box.wantedBy = [ ];
+  systemd.services.sing-box.wantedBy = lib.mkForce [ ];
 
   # 关闭节能wifi
   networking.networkmanager.wifi.powersave = false;

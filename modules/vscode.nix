@@ -39,6 +39,9 @@
           };
         };
 
+        # 终端字体（Nerd Font 显示图标）
+        "terminal.integrated.fontFamily" = "FiraCode Nerd Font Mono";
+
         # 开启保存自动格式化
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
