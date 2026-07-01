@@ -94,4 +94,8 @@
   # Disable autologin to avoid session conflicts
   services.displayManager.autoLogin.enable = false;
   services.getty.autologinUser = null;
+
+  # --- Nautilus / 文件管理器 ---
+  # 在 Nautilus 右键菜单中添加 "在 VS Code 中打开" 选项
+  environment.systemPackages = with pkgs; [ code-nautilus nautilus-python ];
 }
