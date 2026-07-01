@@ -77,7 +77,7 @@
     antigravity # Goolge的AI Agent编辑器
     claude-code # Claude Code: Anthropic 的 AI 辅助编码工具 (终端版)
     opencode # OpenCode: 开源的 AI 编码助手 (终端版)
-    wl-clipboard-rs # Wayland 剪贴板工具 (wl-copy/wl-paste, Rust 重写版)
+    wl-clipboard # Wayland 剪贴板工具 (wl-copy/wl-paste, Rust 重写版)
     # ============================================================
     # 日常办公与社交
     # ============================================================
