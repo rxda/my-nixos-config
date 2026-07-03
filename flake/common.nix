@@ -35,6 +35,7 @@
     ../system/packages.nix
     ../system/fcitx5-rime.nix
     ../system/config.nix
+    ../system/fonts.nix
     ../system/xpra.nix
   ];
 

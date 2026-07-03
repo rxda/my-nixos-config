@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # --- GNOME 桌面 ---
@@ -28,54 +28,6 @@
 
   # --- 打印 ---
   services.printing.enable = true;
-
-  # --- 字体 ---
-  fonts = {
-    fontDir.enable = true;
-    enableGhostscriptFonts = true;
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-color-emoji
-      source-code-pro
-      hack-font
-      # jetbrains-mono
-      wqy_microhei
-      wqy_zenhei
-      nerd-fonts.fira-code
-
-      vista-fonts-chs # 包含微软雅黑 (Microsoft YaHei)
-      vista-fonts # 包含 Calibri, Cambria 等
-      vista-fonts-cht # 繁中
-      sarasa-gothic # 百度网盘用
-      corefonts
-    ];
-
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        sansSerif = [
-          "Noto Sans CJK SC"
-          "DejaVu Sans"
-          "Microsoft YaHei"
-        ];
-        serif = [
-          "Noto Serif CJK SC"
-          "DejaVu Serif"
-          "SimSun"
-        ];
-        monospace = [
-          "FiraCode Nerd Font Mono"
-          "Noto Sans Mono CJK SC"
-        ];
-        emoji = [ "Noto Color Emoji" ];
-      };
-      antialias = true;
-      hinting.enable = true;
-      subpixel.lcdfilter = "default";
-    };
-  };
 
   # Enable the GNOME RDP components
   services.gnome.gnome-remote-desktop.enable = true;
