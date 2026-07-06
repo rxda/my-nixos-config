@@ -15,7 +15,7 @@
   # Zsh 配置
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    enableCompletion = false;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -31,7 +31,6 @@
       ll = "eza -l --icons";
       la = "eza -la --icons";
       lt = "eza --tree --level=2 --icons";
-      update = "sudo nixos-rebuild switch --flake ."; # 稍微修正了一下常用命令
     };
     history.size = 1000000;
   };
