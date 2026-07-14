@@ -191,6 +191,24 @@
         "type": "github"
       }
     },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -397,6 +415,27 @@
         "type": "github"
       }
     },
+    "nur-rxda": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783646750,
+        "narHash": "sha256-KX4Vphv3TojHPk2QbLA+SlOLZHVmOwr+UVTWxXMAPJM=",
+        "owner": "rxda",
+        "repo": "nur-packages",
+        "rev": "8ac16851ea51924a8661ef1a63f46c96fa4b217a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rxda",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "nur-xddxdd": {
       "inputs": {
         "devshell": "devshell",
@@ -459,6 +498,7 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nur-rxda": "nur-rxda",
         "nur-xddxdd": "nur-xddxdd",
         "sing-box-unstable": "sing-box-unstable"
       }
@@ -519,6 +559,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

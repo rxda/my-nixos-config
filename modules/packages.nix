@@ -95,6 +95,8 @@
     gpu-screen-recorder-gtk # 录屏软件，gnome自带的没声音
     ripgrep-all # (rga) 增强版 ripgrep, 支持搜索 PDF/DOCX/压缩包等二进制文件
     inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk # 百度网盘 Linux 客户端
+    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.tonghuashun
+    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.bilibili-video-downloader
     libmtp # MTP 设备通信库 (连接手机等便携设备)
     android-file-transfer # 安卓设备文件传输工具 (MTP 协议)
     # ============================================================
