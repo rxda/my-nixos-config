@@ -5,103 +5,105 @@
     # ============================================================
     # 系统工具与命令行增强
     # ============================================================
-    # --- 压缩解压 ---
-    zip # zip 压缩工具
-    unzip # zip 解压工具
-    xz # xz 高压缩率工具
-    p7zip # 7z 压缩工具 (支持多种格式)
-    unrar # 解压 RAR 格式文件
+    zip # zip 压缩
+    unzip # zip 解压
+    xz # xz 高压缩率
+    p7zip # 7z 压缩（支持多种格式）
+    unrar # RAR 解压
+    tree # 树状目录结构
+    nix-output-monitor # Nix 构建进度条（nom）
+    lsof # 查看打开的文件/端口占用
+    sysstat # 性能监控（iostat, mpstat 等）
+    lm_sensors # 硬件温度监控（sensors）
+    ethtool # 网卡诊断与参数调整
+    pciutils # PCI 设备查询（lspci）
+    usbutils # USB 设备查询（lsusb）
+    lshw # 完整硬件信息
+    fastfetch # 系统信息展示
+    util-linux # Linux 核心工具集
+    eza # ls 现代替代品（图标、颜色、Git 状态）
+    file # 文件类型识别
+    ripgrep-all # 增强版 rg，支持 PDF/DOCX/压缩包等搜索
+    gnugrep # GNU grep 文本搜索
+    wl-clipboard # Wayland 剪贴板（wl-copy/wl-paste）
+    libmtp # MTP 设备通信库
+    jmtpfs # FUSE 挂载 MTP 设备（Android 文件传输）
+    android-file-transfer # Android MTP 文件传输 GUI
 
-    # --- 系统监控与硬件 ---
-    tree # 以树状图显示目录结构
-    nix-output-monitor # (nom) 让 Nix 构建输出像进度条一样直观
-    lsof # 查看当前系统打开的文件/端口占用
-    sysstat # 系统性能监控工具 (iostat, mpstat 等)
-    lm_sensors # 硬件温度监控 (sensors 命令)
-    ethtool # 网卡硬件设置与诊断
-    pciutils # 查看 PCI 设备 (lspci)
-    usbutils # 查看 USB 设备 (lsusb)
-    lshw # 显示硬件详细信息
-    fastfetch # 显示 Linux Logo 和系统信息的帅气工具
-    util-linux # Linux 核心工具集 (你提到用于修复 IDEA 运行 Java 问题)
-    eza # ls 的现代替代品 (支持图标和颜色)
-    file # 查看文件类型的工具
-    gnome-tweaks # GNOME 优化工具 (修改字体、主题等)
+    # ============================================================
+    # 网络与代理
+    # ============================================================
+    # clash-meta                                # Clash Meta 内核（已改用 sing-box）
+    # gui-for-singbox                           # Sing-box GUI（已改用 sing-box）
+    openvpn # OpenVPN 客户端
+    yt-dlp # YouTube/B站等视频下载
+    ffmpeg_7 # 音视频编解码/转换
+    vlc # 媒体播放器
+    aria2 # 命令行多协议下载器
+    filezilla # FTP/SFTP 图形客户端
+    dnsutils # DNS 诊断（dig/nslookup）
+    cifs-utils # SMB/CIFS 挂载
+    waypipe # Wayland 远程桌面
 
     # ============================================================
-    # 网络与代理 (科学上网)
+    # 开发环境
     # ============================================================
-    # clash-meta # Clash 的 Meta 内核 (支持更多协议)
-    # gui-for-singbox # Sing-box 的图形界面
-    openvpn # 传统的 VPN 客户端
-    yt-dlp # youtube下载器
-    ffmpeg_7 # ffmpeg
-    vlc # vlc播放器
+    # --- Nix 工具链 ---
+    nh # Nix Helper：极速构建/清理
+    nix-init # 从 URL 自动生成 Nix 包配置
+    nix-index # command-not-found
+    direnv # 目录自动加载环境变量
+    statix # Nix 代码静态检查
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default # 加密密钥管理
+    nixpkgs-reviewFull # 审查 nixpkgs PR 变更
 
-    # --- 网络分析与下载 ---
-    aria2 # 强大的命令行下载工具
-    gnugrep # GNU 版本的 grep (搜索文本)
-    filezilla # FTP客户端
-    jmtpfs # FUSE filesystem for MTP devices like Android phones
-    cifs-utils # smb挂载
-    # ============================================================
-    # 开发环境 (Dev)
-    # ============================================================
-    # --- Nix 相关 ---
-    nh # Nix Helper: 极速构建 NixOS 的辅助工具
-    nix-init # 自动将 URL 生成为 nix 软件包配置
-    nix-index # 提供 command-not-found 功能 (查找命令属于哪个包)
-    direnv # 进入目录自动加载环境变量 (开发神器)
-    statix # 自动修复过时配置
-    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default # agenix: NixOS 加密密钥管理工具
     # --- 编程语言与编译器 ---
-    jdk25_headless # JDK 25 (headless, 无图形界面依赖, 适合服务器/开发环境)
-    pkg-configUpstream # rust-analyzer依赖
-    lldb # rust调试
-    python314 # python
+    jdk25_headless # JDK 25（headless）
+    pkg-configUpstream # rust-analyzer 依赖
+    lldb # LLVM 调试器（Rust/C++ 调试）
+    python314 # Python 3.14
 
-    # --- 开发工具 ---
-    git # 版本控制
-    reqable # API 接口测试工具
-    android-tools # 安卓调试工具 (adb, fastboot)
-    nixpkgs-reviewFull # nixpkg review工具
-    gh # github cli
-    scrcpy # 安卓
-    git-filter-repo # git历史修改
-    dnsutils # dns工具
+    # --- 版本控制 ---
+    git # 分布式版本控制
+    gh # GitHub CLI
+    git-filter-repo # Git 历史重写
 
-    # --- 编辑器与终端 ---
-    jetbrains.idea # IntelliJ IDEA 旗舰版 (Java IDE)
-    jetbrains.datagrip # DataGrip (数据库管理 IDE)
-    ghostty # 终端
-    antigravity # Goolge的AI Agent编辑器
-    claude-code # Claude Code: Anthropic 的 AI 辅助编码工具 (终端版)
-    opencode # OpenCode: 开源的 AI 编码助手 (终端版)
-    codex
-    cc-switch
-    wl-clipboard # Wayland 剪贴板工具 (wl-copy/wl-paste, 修复opencode不能复制)
+    # --- 安卓调试 ---
+    android-tools # ADB/Fastboot
+    scrcpy # 电脑控制 Android 手机
+
+    # --- API 与测试 ---
+    reqable # API 抓包与调试工具
+
+    # --- 编辑器与 AI 编码 ---
+    jetbrains.idea # IntelliJ IDEA Ultimate
+    jetbrains.datagrip # DataGrip 数据库管理 IDE
+    ghostty # GPU 加速终端
+    antigravity # Google AI Agent 编辑器
+    claude-code # Anthropic Claude CLI 编码助手
+    opencode # 开源 AI 编码助手（终端版）
+    codex # Cursor 风格 AI 编辑器
+    cc-switch # Claude Code 模型切换工具
 
     # ============================================================
     # 日常办公与社交
     # ============================================================
-    google-chrome # 谷歌浏览器
-    firefox # 火狐浏览器
-    wpsoffice-cn # WPS Office (国产办公套件)
+    google-chrome # Google Chrome 浏览器
+    firefox # Mozilla Firefox 浏览器
+    wpsoffice-cn # WPS Office 办公套件
     telegram-desktop # Telegram 桌面端
-    wechat # 微信 (基于 UOS 版本的 Linux 客户端)
-    waypipe # 远程桌面
-    snipaste # 截图工具
+    wechat # 微信（UOS Linux 版）
     qq # QQ
-    gpu-screen-recorder-gtk # 录屏软件，gnome自带的没声音
-    ripgrep-all # (rga) 增强版 ripgrep, 支持搜索 PDF/DOCX/压缩包等二进制文件
-    inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk # 百度网盘 Linux 客户端
-    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.tonghuashun
-    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.bilibili-video-downloader
-    libmtp # MTP 设备通信库 (连接手机等便携设备)
-    android-file-transfer # 安卓设备文件传输工具 (MTP 协议)
+    snipaste # 截图工具
+    gpu-screen-recorder-gtk # GPU 加速录屏
+    gnome-tweaks # GNOME 优化工具
+    inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk # 百度网盘
+    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.tonghuashun # 同花顺
+    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.bilibili-video-downloader # B站视频下载
+
     # ============================================================
-    # 娱乐与游戏
+    # 游戏与娱乐
     # ============================================================
-    chiaki-ng # PS4/PS5 远程串流客户端
+    chiaki-ng # PS4/PS5 远程串流
   ];
 }
