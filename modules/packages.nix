@@ -79,7 +79,7 @@
     jetbrains.idea # IntelliJ IDEA Ultimate
     jetbrains.datagrip # DataGrip 数据库管理 IDE
     ghostty # GPU 加速终端
-    antigravity # Google AI Agent 编辑器
+    # antigravity # Google AI Agent 编辑器
     claude-code # Anthropic Claude CLI 编码助手
     opencode # 开源 AI 编码助手（终端版）
     codex # Cursor 风格 AI 编辑器
@@ -93,13 +93,13 @@
     wpsoffice-cn # WPS Office 办公套件
     telegram-desktop # Telegram 桌面端
     wechat # 微信（UOS Linux 版）
-    qq # QQ
+    # qq # QQ
     snipaste # 截图工具
     gpu-screen-recorder-gtk # GPU 加速录屏
     gnome-tweaks # GNOME 优化工具
     inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk # 百度网盘
-    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.tonghuashun # 同花顺
-    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.bilibili-video-downloader # B站视频下载
+    # inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.tonghuashun # 同花顺
+    # inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.bilibili-video-downloader # B站视频下载
 
     # ============================================================
     # 游戏与娱乐
