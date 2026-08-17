@@ -14,11 +14,16 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      # ！！！关键点！！！
       # N100 必须使用 intel-media-driver (iHD)
       intel-media-driver
 
       # 这两个是通用的，可以留着
+      libva-vdpau-driver
+      libvdpau-va-gl
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      # Steam Remote Play 的客户端组件仍可能加载 32-bit VAAPI/VDPAU 驱动。
+      intel-media-driver
       libva-vdpau-driver
       libvdpau-va-gl
     ];

@@ -27,7 +27,6 @@
     gnugrep # GNU grep 文本搜索
     wl-clipboard # Wayland 剪贴板（wl-copy/wl-paste）
     libmtp # MTP 设备通信库
-    jmtpfs # FUSE 挂载 MTP 设备（Android 文件传输）
     android-file-transfer # Android MTP 文件传输 GUI
 
     # ============================================================
