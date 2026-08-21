@@ -51,7 +51,6 @@
     nh # Nix Helper：极速构建/清理
     nix-init # 从 URL 自动生成 Nix 包配置
     nix-index # command-not-found
-    direnv # 目录自动加载环境变量
     statix # Nix 代码静态检查
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default # 加密密钥管理
     nixpkgs-reviewFull # 审查 nixpkgs PR 变更

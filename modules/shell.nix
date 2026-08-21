@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Starship 提示符
@@ -21,6 +21,7 @@
 
     oh-my-zsh = {
       enable = true;
+      extraConfig = "zstyle ':omz:alpha:lib:git' async-prompt no"; # 修复git补全bug
       plugins = [ "git" ];
       theme = "robbyrussell";
     };
@@ -39,6 +40,7 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    nix-direnv.package = pkgs.nix-direnv;
     enableZshIntegration = true;
     config = {
       whitelist = {
