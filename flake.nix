@@ -8,6 +8,8 @@
 
     # Agent 工具单独跟踪，避免更新它们时同时更新整个 nixpkgs。
     nixpkgs-agents.url = "github:nixos/nixpkgs/nixos-unstable";
+    
+    nixpkgs-heavy.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # 2. 让 home-manager 跟随主 nixpkgs
     home-manager = {

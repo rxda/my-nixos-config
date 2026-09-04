@@ -350,6 +350,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-heavy": {
+      "locked": {
+        "lastModified": 1788316716,
+        "narHash": "sha256-bc7rSpXIdn9QWGNqfWcPZWOhEVF8NoeAZkWq0XWnf/k=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1785031560,
@@ -481,6 +497,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-agents": "nixpkgs-agents",
+        "nixpkgs-heavy": "nixpkgs-heavy",
         "nur-rxda": "nur-rxda",
         "nur-xddxdd": "nur-xddxdd",
         "sing-box-unstable": "sing-box-unstable"

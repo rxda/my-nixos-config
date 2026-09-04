@@ -8,6 +8,7 @@
     ./vscode.nix
     ./packages.nix
     ./agent-packages.nix
+    ./heavy-packages.nix
     ./fcitx5-rime.nix
     ./template.nix
     ./gnome.nix

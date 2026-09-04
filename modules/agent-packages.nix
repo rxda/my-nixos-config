@@ -8,8 +8,6 @@ let
 in
 {
   home.packages = with agentPkgs; [
-    claude-code
-    opencode
     codex
     cc-switch
   ];
