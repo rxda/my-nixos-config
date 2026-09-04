@@ -6,8 +6,9 @@
     ./shell.nix
     ./git.nix
     ./vscode.nix
-    ./zed.nix
     ./packages.nix
+    ./agent-packages.nix
+    ./fcitx5-rime.nix
     ./template.nix
     ./gnome.nix
   ];

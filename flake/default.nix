@@ -24,10 +24,24 @@
         ../hosts/link-eq12/configuration.nix
         ../hosts/link-eq12/hardware-configuration.nix
         ../system/disable-hibernate.nix
-        ../system/android-emulator.nix
         inputs.disko.nixosModules.disko
         ../hosts/link-eq12/disko.nix
       ];
     };
+  };
+
+  # 独立的 Home Manager 配置。
+  # 这样可以使用 `nh home switch .#rxda --update`，只更新用户级配置和软件。
+  flake.homeConfigurations.rxda = inputs.home-manager.lib.homeManagerConfiguration {
+    pkgs = import inputs.nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+      overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+    };
+
+    extraSpecialArgs = { inherit inputs; };
+    modules = [
+      ../modules/home.nix
+    ];
   };
 }

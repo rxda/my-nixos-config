@@ -11,22 +11,6 @@
     # 1. 引入 Agenix 和 VSCode Server
     inputs.agenix.nixosModules.default
 
-    # 2. 引入 Home Manager 的通用配置
-    inputs.home-manager.nixosModules.home-manager
-    {
-      # 这部分是两台机器完全一样的
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "backup";
-      home-manager.extraSpecialArgs = { inherit inputs; };
-
-      home-manager.users.rxda = {
-        imports = [
-          ../modules/home.nix
-        ];
-      };
-    }
-
     ../system/desktop.nix
     ../system/virtualization.nix
     ../system/services.nix
@@ -39,7 +23,7 @@
     ../system/xpra.nix
   ];
 
-  # 3. 引入 VSCode 扩展的 overlay
+  # 引入 VSCode 扩展的 overlay
   nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 
   # --- 时区与语言 ---

@@ -32,42 +32,4 @@
     # NIXOS_OZONE_WL = "1";
   };
 
-  # 2. (可选) 针对 GNOME 的额外优化
-  # Fcitx5 在 GNOME Wayland 下可能没有状态栏图标
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.appindicator
-    gnomeExtensions.kimpanel
-  ];
-
-  # --- 2. 用户级配置 (Home Manager Level) ---
-  home-manager.users.rxda = {
-    # 自动链接雾凇拼音的所有配置文件到 Rime 目录
-    # 这样就不用手动下载、解压和更新词库了
-    home.file.".local/share/fcitx5/rime" = {
-      source = "${pkgs.rime-ice}/share/rime-data";
-      recursive = true;
-    };
-
-    # 写入 Rime 的自定义配置，指定启用雾凇拼音
-    home.file.".local/share/fcitx5/rime/default.custom.yaml".text = ''
-      patch:
-        schema_list:
-          - schema: double_pinyin_flypy
-          - schema: rime_ice
-        
-        menu/page_size: 5
-    '';
-
-    dconf.settings."org/gnome/shell" = {
-      # 使用 mkAfter 将这两个 UUID 追加入到列表中
-      enabled-extensions = lib.mkAfter [
-        pkgs.gnomeExtensions.appindicator.extensionUuid
-        pkgs.gnomeExtensions.kimpanel.extensionUuid
-      ];
-    };
-
-    # (可选) 如果你想给 Fcitx5 换个皮肤 (比如简约白)
-    # home.file.".local/share/fcitx5/themes/".source = ...
-  };
-
 }
