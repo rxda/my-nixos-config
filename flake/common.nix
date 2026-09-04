@@ -66,6 +66,9 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings = {
     substituters = [
+      "https://mirrors.cernet.edu.cn/nix-channels/store"
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org" # 官方源
       "https://rxda-cache.cachix.org"
