@@ -38,10 +38,15 @@
     waypipe
 
     # 其他模块/用户都会用到的工具
-    git
     aria2
     android-tools # adb / fastboot
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    vim
+    wget
+    jq
+    inetutils
+    # GNOME 插件
+    gnome-shell-extensions
   ];
 
 }

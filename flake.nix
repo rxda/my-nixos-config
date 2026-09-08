@@ -8,8 +8,10 @@
 
     # Agent 工具单独跟踪，避免更新它们时同时更新整个 nixpkgs。
     nixpkgs-agents.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     nixpkgs-heavy.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs-latest.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # 2. 让 home-manager 跟随主 nixpkgs
     home-manager = {
@@ -70,7 +72,8 @@
   };
 
   # outputs 不再需要手写参数
-  outputs = inputs@{ self, flake-parts, ... }:
+  outputs =
+    inputs@{ self, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit self inputs; } {
 
       # 定义支持的系统架构

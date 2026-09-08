@@ -1,18 +1,6 @@
 { pkgs, ... }:
 
 {
-  # --- 系统级通用软件 ---
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-    jq
-
-    inetutils
-
-    # GNOME 插件
-    gnome-shell-extensions
-  ];
 
   # --- 环境变量 ---
   environment.sessionVariables = {

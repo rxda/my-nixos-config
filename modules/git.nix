@@ -1,8 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
     enable = true;
+    package = pkgs.gitMinimal;
     signing = {
       key = "~/.ssh/id_ed25519.pub";
       signByDefault = true;
