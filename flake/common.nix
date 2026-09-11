@@ -10,6 +10,7 @@
   imports = [
     # 1. 引入 Agenix 和 VSCode Server
     inputs.agenix.nixosModules.default
+    inputs.home-manager.nixosModules.default
 
     ../system/desktop.nix
     ../system/virtualization.nix
@@ -22,6 +23,14 @@
     ../system/fonts.nix
     ../system/xpra.nix
   ];
+
+  # 将 Home Manager 集成到 NixOS，`nh os switch` 时一并更新用户配置。
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.rxda = import ../modules/home.nix;
+  };
 
   # 引入 VSCode 扩展的 overlay
   nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];

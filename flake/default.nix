@@ -30,8 +30,7 @@
     };
   };
 
-  # 独立的 Home Manager 配置。
-  # 这样可以使用 `nh home switch .#rxda --update`，只更新用户级配置和软件。
+  # 保留独立的 Home Manager 配置，便于需要时单独更新用户环境。
   flake.homeConfigurations.rxda = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";

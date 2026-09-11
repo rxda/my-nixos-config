@@ -119,7 +119,7 @@ sudo nixos-rebuild switch --flake .
 # 仅构建不切换（测试）
 sudo nixos-rebuild build --flake .
 
-# 使用 nh 快速构建
+# 使用 nh 构建系统（会同时更新 Home Manager）
 nh os switch
 
 # 更新 flake.lock

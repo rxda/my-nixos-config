@@ -3,8 +3,8 @@
 {
   # GNOME 扩展和 Rime 文件属于当前用户，由 Home Manager 管理。
   home.packages = with pkgs; [
-    gnomeExtensions.appindicator
-    gnomeExtensions.kimpanel
+    gnomeExtensions.appindicator # 托盘图标支持
+    gnomeExtensions.kimpanel # Fcitx5 输入法面板支持
   ];
 
   home.file.".local/share/fcitx5/rime" = {
