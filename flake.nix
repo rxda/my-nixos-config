@@ -51,7 +51,6 @@
 
     sing-box-unstable = {
       url = "github:rxda/sing-box-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     disko = {
@@ -67,7 +66,7 @@
 
     nur-rxda = {
       url = "github:rxda/nur-packages";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

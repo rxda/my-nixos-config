@@ -11,5 +11,6 @@ in
   home.packages = with agentPkgs; [
     codex # OpenAI Codex 命令行编程 Agent
     cc-switch # AI 客户端和模型配置切换工具
+    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt
   ];
 }
