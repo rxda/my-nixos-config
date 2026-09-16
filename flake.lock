@@ -456,11 +456,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1789438674,
-        "narHash": "sha256-VkrtBVmOojt8Yo60GbLI9op/hc7lL0kNsRJpu3zlq3U=",
+        "lastModified": 1789570422,
+        "narHash": "sha256-WiWRWmY4+EOa+3Bk5JR+3u2vDYqlmmPlTb8O0w0ZtHQ=",
         "owner": "rxda",
         "repo": "nur-packages",
-        "rev": "db15dcbae90e1edf3e0c6ab7fedcf6145b469f81",
+        "rev": "a65dfd592365d47bfb508f575e6d70251ab9c6f1",
         "type": "github"
       },
       "original": {
