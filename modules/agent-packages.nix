@@ -13,5 +13,6 @@ in
     cc-switch # AI 客户端和模型配置切换工具
     inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt
     inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.deepseek-harness
+    inputs.nur-rxda.packages.${pkgs.stdenv.hostPlatform.system}.mimo-code
   ];
 }

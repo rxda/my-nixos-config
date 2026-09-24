@@ -33,7 +33,20 @@
   };
 
   # 引入 VSCode 扩展的 overlay
-  nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+  nixpkgs.overlays = [
+    inputs.nix-vscode-extensions.overlays.default
+    # Lix overlay
+    (final: prev: {
+      inherit (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
+  # use lix
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   # --- 时区与语言 ---
   time.timeZone = "Asia/Shanghai";
