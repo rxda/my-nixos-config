@@ -1,6 +1,20 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
+  # 仅在 link-eq12 的 Home Manager 配置中启用 Hermes，避免影响其他主机。
+  home-manager.users.rxda.imports = [
+    inputs.hermes-agent.homeManagerModules.default
+    ../../modules/hermes.nix
+  ];
+
+  # Home Manager 的 user service 需要 linger，退出登录后仍保持运行。
+  users.users.rxda.linger = true;
+
   # --- hostname ---
   networking.hostName = "link-eq12";
 

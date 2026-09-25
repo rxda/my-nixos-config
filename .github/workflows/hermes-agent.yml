@@ -1,0 +1,39 @@
+name: Build Hermes Agent and push to Cachix
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "flake.nix"
+      - "flake.lock"
+      - "flake/**"
+      - "modules/hermes.nix"
+      - "hosts/link-eq12/configuration.nix"
+      - ".github/workflows/hermes-agent.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build-hermes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v16
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Cachix
+        uses: cachix/cachix-action@v15
+        with:
+          name: rxda-cache
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Build Hermes full package
+        run: |
+          nix build .#hermes-agent-full \
+            --accept-flake-config \
+            --print-build-logs

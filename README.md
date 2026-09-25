@@ -40,6 +40,7 @@
 │   ├── virtualization.nix             # 虚拟化（Docker rootless + Libvirt/KVM）
 │   ├── singbox.nix                    # Sing-box 代理服务（含订阅更新脚本）
 │   ├── tailscale.nix                  # Tailscale 组网
+│   ├── cloudflare-tunnel.nix            # Cloudflare Tunnel（域名访问本机）
 │   ├── fcitx5-rime.nix                # 输入法（Fcitx5 + 雾凇拼音）
 │   ├── agenix.nix                     # Agenix 加密凭据管理
 │   ├── aria2.nix                      # Aria2 下载服务 + AriaNg Web 面板
@@ -56,7 +57,8 @@
 │   └── untc.sh                        # 取消限速脚本
 │
 ├── docs/                              # 文档
-│   └── disko.md                       # Disko 分区安装指南
+│   ├── disko.md                       # Disko 分区安装指南
+│   └── cloudflare-tunnel.md            # Cloudflare Tunnel 配置与连接说明
 │
 ├── .github/                           # GitHub 相关配置
 │
@@ -139,6 +141,7 @@ sudo nixos-install --flake .#link-eq12
 |------|------|------|
 | [Sing-box](system/singbox.nix) | - | Sing-box服务（TUN 模式），含自动更新订阅脚本 |
 | [Tailscale](system/tailscale.nix) | - | 虚拟组网 |
+| [Cloudflare Tunnel](docs/cloudflare-tunnel.md) | 出站连接 | 通过域名访问 link-eq12 上的服务 |
 | [Aria2](system/aria2.nix) | `6800` / `30020` | 下载服务 + AriaNg Web 面板 |
 | [Samba](system/services.nix) | `445` | 文件共享 |
 | [Dufs](system/services.nix) | `5005` | WebDAV 文件服务 |

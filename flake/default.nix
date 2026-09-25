@@ -30,6 +30,10 @@
     };
   };
 
+  # 导出 Hermes 完整包，供 GitHub Actions 预构建并推送到 Cachix。
+  flake.packages.x86_64-linux.hermes-agent-full =
+    inputs.hermes-agent.packages.x86_64-linux.default;
+
   # 保留独立的 Home Manager 配置，便于需要时单独更新用户环境。
   flake.homeConfigurations.rxda = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
