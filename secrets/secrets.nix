@@ -24,4 +24,7 @@ in
 {
   "singbox-url.age".publicKeys = all_users ++ all_systems;
   "hermes-auth.age".publicKeys = [ user_eq12 system_eq12 ];
+  "hermes-public-url.age".publicKeys = [ user_eq12 system_eq12 ];
+  "hermes-dashboard-auth.age".publicKeys = [ user_eq12 system_eq12 ];
+  "cloudflare-tunnel-credentials.age".publicKeys = [ user_eq12 system_eq12 ];
 }

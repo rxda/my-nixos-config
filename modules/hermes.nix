@@ -2,13 +2,6 @@
 
 {
 
-  age.secrets.hermes-auth = {
-    file = ../../secrets/hermes-auth.age;
-    owner = "rxda";
-    group = "users";
-    mode = "0400";
-  };
-
   # Home Manager 模块：服务和 CLI 都归 rxda 用户管理。
   services.hermes-agent = {
     enable = true;
@@ -28,6 +21,12 @@
       model.default = "upstage/solar-pro4:free";
     };
   };
+
+  # Dashboard 的公网 URL 和 Basic Auth 凭据由 Agenix 在运行时注入。
+  # 不使用 services.hermes-agent.environmentFiles，避免把这些变量注入 gateway。
+  systemd.user.services.hermes-backend.Service.EnvironmentFile = [
+    "/run/agenix/hermes-dashboard-auth"
+  ];
 
   programs.hermes-agent.enable = true;
 }
