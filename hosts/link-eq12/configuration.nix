@@ -5,35 +5,30 @@
   inputs,
   ...
 }:
-
 {
-  age.secrets.hermes-auth = {
-    file = ../../secrets/hermes-auth.age;
-    owner = "rxda";
-    group = "users";
-    mode = "0400";
-  };
+  # Secrets are kept in one hierarchical SOPS file. The key paths below
+  # select values without changing the stable /run/secrets filenames.
+  sops.secrets = {
+    "hermes-auth" = {
+      key = "link-eq12/hermes/auth";
+      owner = "rxda";
+      group = "users";
+      mode = "0400";
+    };
 
-  # Hermes 的公网 URL 通过 Agenix 注入，避免把域名写进 Git/Nix store。
-  age.secrets.hermes-public-url = {
-    file = ../../secrets/hermes-public-url.age;
-    owner = "rxda";
-    group = "users";
-    mode = "0400";
-  };
+    "hermes-dashboard-auth" = {
+      key = "link-eq12/hermes/dashboard-auth";
+      owner = "rxda";
+      group = "users";
+      mode = "0400";
+    };
 
-  # Hermes Dashboard 公网 URL 和 Basic Auth 凭据，运行时由 Agenix 解密。
-  age.secrets.hermes-dashboard-auth = {
-    file = ../../secrets/hermes-dashboard-auth.age;
-    owner = "rxda";
-    group = "users";
-    mode = "0400";
-  };
-
-  age.secrets.cloudflare-tunnel-credentials = {
-    file = ../../secrets/cloudflare-tunnel-credentials.age;
-    owner = "root";
-    mode = "0400";
+    "cloudflare-tunnel-credentials" = {
+      key = "link-eq12/cloudflare/tunnel-credentials";
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
   };
 
   # 仅在 link-eq12 的 Home Manager 配置中启用 Hermes，避免影响其他主机。
@@ -48,7 +43,7 @@
   services.cloudflared = {
     enable = true;
     tunnels."469cc5db-4750-4397-a786-17e640376ef9" = {
-      credentialsFile = config.age.secrets.cloudflare-tunnel-credentials.path;
+      credentialsFile = config.sops.secrets.cloudflare-tunnel-credentials.path;
       # Public hostname/DNS route is managed in Cloudflare; no domain is stored here.
       default = "http://127.0.0.1:9119";
     };

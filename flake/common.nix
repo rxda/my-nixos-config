@@ -8,8 +8,8 @@
 {
   # 这个文件会被所有主机导入
   imports = [
-    # 1. 引入 Agenix 和 VSCode Server
-    inputs.agenix.nixosModules.default
+    # 1. 引入 Sops-nix 和 VSCode Server
+    inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.default
 
     ../system/desktop.nix
@@ -22,6 +22,7 @@
     ../system/config.nix
     ../system/fonts.nix
     ../system/xpra.nix
+    ../system/sops.nix
   ];
 
   # 将 Home Manager 集成到 NixOS，`nh os switch` 时一并更新用户配置。

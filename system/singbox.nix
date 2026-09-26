@@ -21,11 +21,8 @@ in
   # 1. 确保安装 sing-box
   environment.systemPackages = [ sing-box-latest ];
 
-  age.secrets.singbox-url = {
-    file = ../secrets/singbox-url.age;
-    owner = "root"; # 因为是 systemd (root) 要读它
-    mode = "400";
-  };
+  # sops.secrets.singbox-url 的声明移至 system/sops.nix
+  # 以下直接引用解密后的路径
 
   # 2. 定义 sing-box 主服务
   systemd.services.sing-box = {
@@ -59,7 +56,7 @@ in
     script = ''
       # === 配置你的订阅链接 ===
       # 建议在链接最后加上 &flag=sing-box 让转换后端吐出正确的格式
-      URL=$(cat ${config.age.secrets.singbox-url.path})
+      URL=$(cat ${config.sops.secrets.singbox-url.path})
 
       CONFIG_DIR="/var/lib/sing-box"
       TARGET="$CONFIG_DIR/config.json"

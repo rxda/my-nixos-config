@@ -40,17 +40,16 @@
 │   ├── virtualization.nix             # 虚拟化（Docker rootless + Libvirt/KVM）
 │   ├── singbox.nix                    # Sing-box 代理服务（含订阅更新脚本）
 │   ├── tailscale.nix                  # Tailscale 组网
-│   ├── cloudflare-tunnel.nix            # Cloudflare Tunnel（域名访问本机）
 │   ├── fcitx5-rime.nix                # 输入法（Fcitx5 + 雾凇拼音）
-│   ├── agenix.nix                     # Agenix 加密凭据管理
+│   ├── sops.nix                       # Sops-nix 加密凭据管理
 │   ├── aria2.nix                      # Aria2 下载服务 + AriaNg Web 面板
 │   ├── gateway.nix                    # 网关模式（NAT + 转发，用于旁路由）
 │   ├── xpra.nix                       # Xpra 远程桌面服务
 │   └── disable-hibernate.nix          # 禁用休眠（仅 link-eq12）
 │
-├── secrets/                           # 加密凭据（Agenix）
-│   ├── secrets.nix                    # 公钥映射定义
-│   └── singbox-url.age                # 订阅加密
+├── secrets/                           # 加密凭据（Sops-nix）
+│   ├── .sops.yaml                    # SOPS 加密规则（SSH ed25519 公钥映射）
+│   └── secrets.yaml                  # 分层加密密钥（所有机器可恢复）
 │
 ├── scripts/                           # 辅助脚本
 │   ├── tc.sh                          # 限速脚本（tc 流量控制）
@@ -104,7 +103,7 @@ flake.nix
 |------|------|
 | [`nixpkgs`](https://github.com/NixOS/nixpkgs) (nixos-unstable) | 主软件源 |
 | [`home-manager`](https://github.com/nix-community/home-manager) | 用户级配置管理 |
-| [`agenix`](https://github.com/ryantm/agenix) | 加密凭据管理 |
+| [`sops-nix`](https://github.com/Mic92/sops-nix) | 加密凭据管理 (SOPS + age/SSH) |
 | [`disko`](https://github.com/nix-community/disko) | 磁盘分区声明式配置 |
 | [`nixos-hardware`](https://github.com/NixOS/nixos-hardware) | 硬件优化配置 |
 | [`nix-vscode-extensions`](https://github.com/nix-community/nix-vscode-extensions) | VS Code 扩展 Nix 化 |
@@ -128,7 +127,14 @@ nh os switch
 nix flake update
 
 # 编辑加密凭据
-agenix -e secrets/singbox-url.age
+sops secrets/secrets.yaml
+
+# 验证密钥可以解密，但不把明文输出到终端
+sops -d secrets/secrets.yaml >/dev/null
+
+# 两台电脑都配置了 SOPS recipient，可以在任一台电脑编辑并重新加密
+# key 使用 common/singbox/url、link-eq12/hermes/auth 这样的层级路径
+sops secrets/secrets.yaml
 
 # 使用 Disko 分区并安装（新机器）
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./flake.nix#link-eq12
