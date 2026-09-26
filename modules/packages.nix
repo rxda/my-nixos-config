@@ -16,7 +16,7 @@
     nix-init # 根据软件 URL 自动生成 Nix 包模板
     nix-index # 为 command-not-found 提供 Nix 包索引
     statix # Nix 静态检查与代码规范检查
-    nixpkgs-reviewFull # 本地构建和审查 nixpkgs PR
+    # nixpkgs-reviewFull # 本地构建和审查 nixpkgs PR
 
     pkg-configUpstream # 为源码构建提供编译器和库的查询信息
 

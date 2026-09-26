@@ -23,4 +23,5 @@ let
 in
 {
   "singbox-url.age".publicKeys = all_users ++ all_systems;
+  "hermes-auth.age".publicKeys = [ user_eq12 system_eq12 ];
 }
