@@ -57,7 +57,6 @@
 │
 ├── docs/                              # 文档
 │   ├── disko.md                       # Disko 分区安装指南
-│   └── cloudflare-tunnel.md            # Cloudflare Tunnel 配置与连接说明
 │
 ├── .github/                           # GitHub 相关配置
 │
@@ -133,7 +132,7 @@ sops secrets/secrets.yaml
 sops -d secrets/secrets.yaml >/dev/null
 
 # 两台电脑都配置了 SOPS recipient，可以在任一台电脑编辑并重新加密
-# key 使用 common/singbox/url、link-eq12/hermes/auth 这样的层级路径
+# key 使用 common/singbox/url 这样的层级路径
 sops secrets/secrets.yaml
 
 # 使用 Disko 分区并安装（新机器）
@@ -147,7 +146,6 @@ sudo nixos-install --flake .#link-eq12
 |------|------|------|
 | [Sing-box](system/singbox.nix) | - | Sing-box服务（TUN 模式），含自动更新订阅脚本 |
 | [Tailscale](system/tailscale.nix) | - | 虚拟组网 |
-| [Cloudflare Tunnel](docs/cloudflare-tunnel.md) | 出站连接 | 通过域名访问 link-eq12 上的服务 |
 | [Aria2](system/aria2.nix) | `6800` / `30020` | 下载服务 + AriaNg Web 面板 |
 | [Samba](system/services.nix) | `445` | 文件共享 |
 | [Dufs](system/services.nix) | `5005` | WebDAV 文件服务 |
