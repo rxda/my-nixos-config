@@ -28,7 +28,7 @@
 
     shellAliases = {
       # Run the project-managed Hermes CLI inside its gateway container.
-      hermes = "docker compose -f /home/rxda/Documents/code/docker/hermes-develop/compose.yaml exec gateway hermes";
+      hermes = "docker compose -f /home/rxda/Documents/code/docker/hermes-develop/compose.yaml exec hermes /opt/hermes/bin/hermes";
       ls = "eza --icons";
       l = "eza -1 --icons";
       ll = "eza -l --icons";
