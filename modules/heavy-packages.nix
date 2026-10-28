@@ -32,7 +32,6 @@ in
     snipaste # 截图与贴图工具
     gpu-screen-recorder-gtk # GPU 加速屏幕录制工具
     inputs.nur-xddxdd.legacyPackages.${pkgs.stdenv.hostPlatform.system}.baidunetdisk # 百度网盘客户端
-    winboat
     # ============================================================
     # 游戏与娱乐
     # ============================================================
