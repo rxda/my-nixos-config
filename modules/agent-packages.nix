@@ -5,14 +5,24 @@ let
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
+
+  # 用 symlinkJoin 包装原包输出，原包本身可走缓存，不重建
+  deepseekHarnessWithBwrap = agentPkgs.symlinkJoin {
+    name = "deepseek-harness-with-bwrap";
+    paths = [ agentPkgs.deepseek-harness ];
+    nativeBuildInputs = [ agentPkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/dsh \
+        --prefix PATH : ${agentPkgs.lib.makeBinPath [ agentPkgs.bubblewrap ]}
+    '';
+  };
 in
 {
-  # Agent 相关软件使用独立的 nixpkgs-agents，便于单独更新。
   home.packages = with agentPkgs; [
-    codex # OpenAI Codex 命令行编程 Agent
-    cc-switch # AI 客户端和模型配置切换工具
+    codex
+    cc-switch
     opencode
     chatgpt
-    deepseek-harness
+    deepseekHarnessWithBwrap
   ];
 }
