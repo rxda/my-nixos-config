@@ -67,6 +67,12 @@
       url = "github:rxda/nur-packages";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # https://github.com/Gloridust/WowType#nixos--nix 输入法
+    wowtype = {
+      url = "github:Gloridust/WowType/release";   # 跟正式版；想锁某一版写 github:Gloridust/WowType/v0.3.10
+      inputs.nixpkgs.follows = "nixpkgs";         # 和系统用同一份 fcitx5
+    };
   };
 
   # outputs 不再需要手写参数

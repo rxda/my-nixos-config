@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   # !!!安装后不生效的话，删除~/.local/share/fcitx5/rime/build，重新部署rime
@@ -10,15 +15,17 @@
       # 开启 Wayland 支持（GNOME 默认使用 Wayland）
       waylandFrontend = true;
       # 安装插件
-      addons = with pkgs; [
+      addons = [
         # rime 主程序
-        fcitx5-rime
+        pkgs.fcitx5-rime
         # 雾凇拼音词库（nixpkgs unstable/24.11 已收录）
-        rime-ice
+        pkgs.rime-ice
         # 必要的界面库（解决 GTK/Qt 程序的输入问题）
-        fcitx5-gtk
-        libsForQt5.fcitx5-qt # 针对 Qt5 程序（WPS 主要用这个）
-        kdePackages.fcitx5-qt # 针对 Qt6 程序
+        pkgs.fcitx5-gtk
+        pkgs.libsForQt5.fcitx5-qt # 针对 Qt5 程序（WPS 主要用这个）
+        pkgs.kdePackages.fcitx5-qt # 针对 Qt6 程序
+        # WowType
+        inputs.wowtype.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
     };
   };
